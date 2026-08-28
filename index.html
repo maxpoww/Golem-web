@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golem</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 30% 30%, #1e293b, #0f172a);
+      color: #f8fafc;
+    }
+    .card {
+      text-align: center;
+      padding: 3rem 4rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+    .wave { display: inline-block; animation: wave 1.6s ease-in-out infinite; transform-origin: 70% 70%; }
+    p { margin-top: 0.75rem; color: #94a3b8; }
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(18deg); }
+      30% { transform: rotate(-8deg); }
+      45% { transform: rotate(14deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hello world, I'm Golem <span class="wave">👋</span></h1>
+    <p>Deployed on Cloudflare</p>
+  </div>
+</body>
+</html>
