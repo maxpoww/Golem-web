@@ -3,41 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Golem</title>
+  <title>Golem — an operating system with a soul</title>
+  <meta name="description" content="Golem 26 “Uprise” — a Linux distribution built around OPTIONS. One surface. One Brain. Zero friction. For everyone." />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at 30% 30%, #1e293b, #0f172a);
-      color: #f8fafc;
+      background: radial-gradient(circle at 30% 20%, #1e293b, #0f172a 70%);
+      color: #e2e8f0;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 4rem 1.25rem 6rem;
     }
-    .card {
-      text-align: center;
-      padding: 3rem 4rem;
-      border-radius: 1rem;
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      border-radius: 1.25rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
-    h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
-    .wave { display: inline-block; animation: wave 1.6s ease-in-out infinite; transform-origin: 70% 70%; }
-    p { margin-top: 0.75rem; color: #94a3b8; }
-    @keyframes wave {
-      0%, 60%, 100% { transform: rotate(0deg); }
-      15% { transform: rotate(18deg); }
-      30% { transform: rotate(-8deg); }
-      45% { transform: rotate(14deg); }
+    h1 { font-size: 3rem; letter-spacing: -0.03em; color: #f8fafc; }
+    .version { color: #94a3b8; margin-top: 0.25rem; font-size: 1.05rem; }
+    h2 {
+      margin-top: 2.5rem; margin-bottom: 0.5rem;
+      font-size: 1.15rem; letter-spacing: 0.02em; color: #7dd3fc;
+      text-transform: uppercase;
     }
+    p { margin-top: 0.75rem; color: #cbd5e1; }
+    strong { color: #f8fafc; }
+    ul { margin: 0.75rem 0 0 1.2rem; color: #cbd5e1; }
+    li { margin-top: 0.5rem; }
+    li b { color: #f8fafc; }
+    hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    .close {
+      text-align: center; font-size: 1.2rem; color: #f8fafc;
+      letter-spacing: 0.01em; font-style: italic;
+    }
+    footer { text-align: center; margin-top: 2rem; color: #64748b; font-size: 0.85rem; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Que onda Danix, todo piola?  <span class="wave">👋</span></h1>
-    <p>Boludo tengo pagina de interne propia na la paedo craeeeeeeer</p>
-  </div>
+  <main>
+    <h1>Golem</h1>
+    <p class="version">Golem 26 — “Uprise”</p>
+
+    <h2>What Golem is</h2>
+    <p>A Linux distribution with a soul. Not a theme, not a desktop
+    environment, not a pile of apps — an operating system built around one
+    idea: <strong>OPTIONS</strong>.</p>
+
+    <h2>The idea</h2>
+    <p>All friction between a person and their intention is a design
+    failure. You should not operate a computer; you should <em>use</em> it.
+    Golem's job is to notice what you're doing, offer exactly what helps,
+    and get out of the way.</p>
+
+    <h2>The philosophy</h2>
+    <p>Game designers solved the problem desktop designers never did:
+    teaching complete novices to master complex systems — no manual, no
+    training, no fear. They did it with dynamic, diegetic, context-aware
+    design that surfaces the right tool at the right moment and removes the
+    rest. <strong>OPTIONS is that philosophy applied to an OS.</strong>
+    Help scales to your skill: scaffolding for the novice, silence for the
+    expert, safety for both.</p>
+
+    <h2>Who it's for</h2>
+    <p><strong>Everyone.</strong> Not “anyone could” — <em>everyone can</em>.
+    Take a Golem PC, get things done. The shell meets each person where they
+    come from: the dock and topbar welcome the Mac user, the openbox
+    welcomes the Windows user, the substrate welcomes the Linux user — and
+    OPTIONS fills every gap between intention and action. Everyone includes
+    languages, includes accessibility, includes the person who has never
+    installed anything in their life.</p>
+
+    <h2>How it's built</h2>
+    <ul>
+      <li><b>The Brain</b> senses your context — windows, media, work,
+      phone, battery — and decides what is logical to offer.</li>
+      <li><b>The Body</b> is the one living surface you see: dock, openbox,
+      the OPTIONS boxes. GPU-rendered, animated with intent, idle at rest.</li>
+      <li><b>The Ground</b> (NixOS) makes everything declarative and
+      reproducible: installs are intent written to a file; updates are
+      atomic; <em>any</em> change can be rolled back. The system cannot rot.
+      No mainstream OS can say that.</li>
+      <li><b>The Reach</b> (Golem for Android) fuses your phone into the
+      same Brain — the open answer to the Mac+iPhone ecosystem, on the seat
+      Google and Apple left empty.</li>
+    </ul>
+
+    <h2>What Golem refuses</h2>
+    <p>Configuration as a hobby. Terminals as a requirement. Ads,
+    telemetry, upsells inside the OS. Features that exist to be lists on a
+    website. Interruptions dressed as help. An update that can break your
+    machine.</p>
+
+    <h2>Direction</h2>
+    <p>From here: wire the Brain to the Body, complete the everyday OS,
+    reach the phone, then hand it to the world — an ISO a stranger can
+    install without us in the room.</p>
+    <p><strong>Uprise</strong> is the first climb: from a daily-driven
+    prototype to an OS other people wake up to.</p>
+
+    <hr />
+    <p class="close">One surface. One Brain. Zero friction. For everyone.</p>
+  </main>
+  <footer>golem-os.com</footer>
 </body>
 </html>
