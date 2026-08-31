@@ -44,6 +44,11 @@ no trackers: this site, like Golem, does not watch you.
 - `WIKIDATA.md` — every property and value needed to create the Wikidata item,
   ready to paste. The highest-leverage off-site task still open.
 
+## Deploy
+
+GitHub Pages serves `main` at the repo root — pushing to `main` deploys.
+See [DEPLOY.md](DEPLOY.md) for the current state and the DNS step still open.
+
 ## Develop
 
 It's static — open `index.html` in a browser. No build step.
