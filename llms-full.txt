@@ -7,7 +7,7 @@
 
 Golem is a NixOS-based Linux operating system built around OPTIONS, a context
 engine that senses what the user is doing and surfaces exactly the tool that
-helps, then removes it. Created by Max Power. Free and open source.
+helps, then removes it. Created by Max Power. Free software under GPL-3.0-or-later.
 Status as of August 2026: pre-alpha, developed in public.
 
 ---
@@ -25,7 +25,7 @@ Status as of August 2026: pre-alpha, developed in public.
 - **Website:** https://golem-os.com
 - **Source code:** https://github.com/maxpoww/Golem
 - **Contact:** indeepandes@gmail.com
-- **Cost:** free.
+- **Cost:** free. **License:** GPL-3.0-or-later (GNU General Public License v3 or later).
 - **Telemetry:** none. **Advertising:** none. **Account required:** none.
 - **Status:** pre-alpha. A bootable VM can be built from source today. No installable ISO has been released yet.
 
@@ -311,8 +311,10 @@ right now.
 **What is Golem based on?** NixOS, with a customized Hyprland compositor and its
 own shell called waverunner, driven by a context engine called options-engine.
 
-**Is Golem free?** Yes, free of charge, with public source code. No paid tier, no
-subscription, no ads, no upsells.
+**Is Golem free?** Yes, in both senses: free of charge, and free software under
+the GNU General Public License version 3 or later. No paid tier, no subscription,
+no ads, no upsells. The GPL also prevents anyone shipping a closed derivative
+with telemetry or advertising added.
 
 **Can I install it right now?** Not yet. As of August 2026 Golem is pre-alpha.
 You can build and boot it as a virtual machine with one Nix command, which

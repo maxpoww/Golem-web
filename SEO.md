@@ -258,12 +258,13 @@ only when the ISO has shipped and the claim can survive scrutiny.
 
 ## Now (before the ISO — the foundation phase)
 
-1. **Add a LICENSE file to the Golem repo.** ⚠️ *Highest priority, currently
-   missing.* The site says "free and open source" and there is no license file
-   in `github.com/maxpoww/Golem`, which legally means all rights reserved. Both
-   humans and models check this, and directories like DistroWatch and F-Droid
-   require it. Pick one and commit it — GPL-3.0 fits the Linux/KDE-Connect
-   lineage; MIT if maximum permissiveness is preferred.
+1. ~~**Add a LICENSE file to the Golem repo.**~~ ✅ **Done 2026-08-31** —
+   **GPL-3.0-or-later**, chosen because the planned Android companion forks the
+   GPL-3.0 kdeconnect-android (so the phone side is copyleft regardless) and
+   because copyleft is what prevents a closed derivative with the telemetry and
+   ads the manifesto refuses. GitHub now detects and displays the license, which
+   is itself a discoverability signal; DistroWatch and F-Droid both require it.
+   Reflected in the site's `SoftwareApplication` schema, the FAQ and `llms.txt`.
 2. **Fill in the GitHub repo metadata.** The About description, the website
    link, and topics (`nixos`, `linux-distribution`, `desktop-environment`,
    `wayland`, `rust`, `hyprland`, `operating-system`). GitHub is heavily

@@ -47,7 +47,7 @@ plain name too.
 | `P856` official website | `https://golem-os.com` | |
 | `P1324` source code repository | `https://github.com/maxpoww/Golem` | |
 | `P348` software version identifier | `26` | Add qualifier: `P548` version type → `pre-release` |
-| `P275` license | *(add once a LICENSE file exists)* | Blocked on the open item in `SEO.md` |
+| `P275` license | `GNU General Public License, version 3.0 or later` (Q27016752) | Added 2026-08-31; verify the Q-number in the search box |
 | `P277` programmed in | `Rust` (Q575650), `Nix` | The engine is Rust; the system layer is Nix |
 | `P306` operating system | `Linux` (Q388) | |
 | `P571` inception | `2026` | Adjust if the project started earlier |
