@@ -33,8 +33,34 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Golem Linux", "item": "https://golem-os.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Which Linux should you install?", "item": "https://golem-os.com/choose.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://golem-os.com/choose.html",
+        "url": "https://golem-os.com/choose.html",
+        "name": "Which Linux should you install?",
+        "isPartOf": { "@id": "https://golem-os.com/#website" },
+        "about": { "@id": "https://golem-os.com/#golem" },
+        "publisher": { "@id": "https://golem-os.com/#org" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <a class="skip" href="#main">Skip to content</a>
 
   <div class="substrate" aria-hidden="true">
     <div class="aurora a1"></div>
@@ -54,7 +80,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main">
     <section class="page-head">
       <div class="wrap">
         <div class="kicker rv in">A guide</div>
@@ -197,7 +223,8 @@
         <div class="col">
           <b>Golem</b>
           <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
-          <a href="choose.html">Which Linux?</a> · <a href="faq.html">FAQ</a> ·
+          <a href="choose.html">Which Linux?</a> · <a href="concepts.html">Concepts</a> ·
+          <a href="faq.html">FAQ</a> ·
           <a href="manifesto.html">Manifesto</a> ·
           <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
         </div>

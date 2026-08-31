@@ -11,7 +11,12 @@ no trackers: this site, like Golem, does not watch you.
   the six gates of a finished module.
 - `compare.html` — Golem measured against Windows, macOS, Ubuntu, Silverblue,
   NixOS and COSMIC, including when *not* to choose Golem.
+- `choose.html` — an honest guide to which Linux you should install; recommends
+  other distributions for almost every situation.
+- `concepts.html` — atomic, immutable, declarative and the rest, explained
+  plainly, including the immutable-vs-declarative distinction most sources conflate.
 - `faq.html` — real questions, direct answers, no marketing.
+- `404.html` — served automatically by GitHub Pages; `noindex, follow`.
 - `download.html` — get Golem: the VM build today, the ISO bar for Arc 1.
 - `manifesto.html` — the manifesto, beautifully set.
 
@@ -36,6 +41,8 @@ no trackers: this site, like Golem, does not watch you.
 - `WEBSITE.md` — market analysis, site spec, and marketing plan.
 - `SEO.md` — the search and AI-discoverability playbook: how AI recommendation
   works, what's built, the question space to own, and the ongoing work.
+- `WIKIDATA.md` — every property and value needed to create the Wikidata item,
+  ready to paste. The highest-leverage off-site task still open.
 
 ## Develop
 

@@ -84,6 +84,11 @@ Stated once, so it never gets rediscovered as a "growth idea":
 | Question surface | `faq.html` | 19 real questions with direct, extractable first-sentence answers. |
 | Comparison surface | `compare.html` | The table format retrieval systems love, against 8 named competitors, plus an explicit "when not to choose Golem" section. |
 | Social/meta | all pages | Canonical URLs, unique descriptions, OpenGraph + Twitter cards, rendered `og-image.png`. |
+| Definitional surface | `concepts.html` | `DefinedTermSet` with 10 `DefinedTerm` entries — atomic update, generation, rollback, declarative, immutable, reproducible, flake, context engine, compositor. Definitional content is what AI systems retrieve most, and the immutable-vs-declarative explainer is a Tier-1 query nobody has written well. |
+| Entity consolidation | inner pages | Each page carries a `BreadcrumbList` and a `WebPage` node whose `about` points at `#golem` and `isPartOf` at `#website`, so the whole site resolves to one entity rather than eight unrelated documents. |
+| Soft-404 prevention | `404.html` | GitHub Pages serves it automatically. Marked `noindex, follow` so link equity passes through but the page never ranks. |
+| Keyboard & contrast | `assets/styles.css` | Skip link, visible `:focus-visible` ring, and `--ink-faint` raised from #64748b (4.15:1 — failed WCAG AA) to #707f95 (4.87:1 — passes). Accessibility is a ranking input and a real usability fix. |
+| Off-site prep | `WIKIDATA.md` | Every property and value needed to create the Wikidata item, ready to paste. |
 
 **A caveat worth knowing:** `llms.txt` is a proposed convention, not a standard
 that any major provider has committed to honoring. It costs almost nothing to
@@ -270,9 +275,11 @@ only when the ISO has shipped and the claim can survive scrutiny.
    sitemap. Bing matters more than its market share suggests — it backs
    ChatGPT's and Copilot's web results.
 4. **Create a Wikidata item.** Free, no notability bar (unlike Wikipedia), and
-   directly consumed by AI systems as a structured fact source. Properties:
-   instance of → Linux distribution; based on → NixOS; developer; official
-   website; source repository; license.
+   directly consumed by AI systems as a structured fact source. **Every property
+   and value is written out ready to paste in [`WIKIDATA.md`](WIKIDATA.md)** —
+   it is about fifteen minutes of work and it is the highest-leverage remaining
+   fix for the "golem linux" entity problem, because Google trusts a database
+   record over a site's claims about itself.
 5. **Test the baseline.** Run the prompt suite in Part V *now*, before anything
    has been done, so you can prove movement later.
 6. **Re-test "golem linux" in about 4–6 weeks.** The entity fix in Part II-B

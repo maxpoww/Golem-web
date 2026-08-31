@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atomic, immutable, declarative — the concepts explained plainly</title>
+  <meta name="description" content="What atomic updates, system generations, rollback, immutable and declarative actually mean — and the real difference between image-based systems like Fedora Silverblue and declarative ones like NixOS and Golem Linux." />
+  <link rel="canonical" href="https://golem-os.com/concepts.html" />
+  <meta property="og:title" content="Atomic, immutable, declarative — explained plainly" />
+  <meta property="og:description" content="The vocabulary of unbreakable operating systems, defined without jargon — including the immutable vs declarative distinction almost everyone gets wrong." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://golem-os.com/concepts.html" />
+  <meta property="og:image" content="https://golem-os.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Golem" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "DefinedTermSet",
+        "@id": "https://golem-os.com/concepts.html#glossary",
+        "name": "Operating system concepts: atomic, immutable, declarative",
+        "description": "Plain-language definitions of the vocabulary used to describe operating systems that cannot be broken by an update.",
+        "url": "https://golem-os.com/concepts.html",
+        "inLanguage": "en",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "name": "Atomic update",
+            "description": "An update that either completes entirely or does not happen at all, with no partially-updated state in between. The new system is built alongside the running one and the machine switches to it in a single step, so an interruption such as a power cut leaves the old system intact and working rather than a half-updated one that may not boot.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Generation",
+            "description": "A complete, bootable snapshot of a system's configuration at one point in time. On NixOS and systems built on it such as Golem Linux, every change produces a new generation and previous generations remain on disk and selectable at boot, which is what makes rollback possible.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Rollback",
+            "description": "Returning a computer to a previous known-good state. On a system with generations this is not a repair operation that attempts to undo changes, but a switch back to a system that still exists in full, which is why it is reliable rather than best-effort.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Declarative configuration",
+            "description": "Describing the state a system should be in and letting the system work out how to get there, rather than issuing a sequence of commands that change it step by step. The configuration file is the source of truth, so the same file always produces the same system.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Immutable operating system",
+            "description": "An operating system whose core files are read-only during normal use. Updates replace the base as a whole rather than modifying files in place. Usually implemented as an image-based system, where a prebuilt base image is shipped and user changes are layered on top. Fedora Silverblue and Vanilla OS are examples.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Declarative operating system",
+            "description": "An operating system where the entire machine, including which applications are installed and how services are configured, is described in configuration files from which the system is built. This is a stronger property than immutability: an immutable system protects a base someone else assembled, while a declarative system can rebuild the whole machine identically anywhere from its description. NixOS is the main example, and Golem Linux is built on it.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Reproducible system",
+            "description": "A system that can be rebuilt to be identical from its description alone. Given the same configuration and the same pinned inputs, two different computers produce the same result, which means a working setup can be moved or recreated exactly rather than approximated by reinstalling and reconfiguring.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Nix flake",
+            "description": "A unit of Nix configuration with its dependencies pinned to exact versions in a lock file. Because every input is pinned, building the same flake on another machine at another time produces the same system. Golem Linux is distributed as a flake.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Context engine",
+            "description": "A component that observes the current state of a computer and its user's activity — open windows, media playback, battery level, connected devices — and decides which affordances are relevant at that moment. In Golem Linux the context engine is called options-engine and drives what the desktop shell offers, so interface elements appear when they are useful and disappear when they are not.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Wayland compositor",
+            "description": "The program that draws windows on screen and handles input on a modern Linux desktop, replacing the older X11 display server. It combines the roles of window manager and display server. Golem Linux uses a customized version of the Hyprland compositor.",
+            "inDefinedTermSet": "https://golem-os.com/concepts.html#glossary"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "headline": "Atomic, immutable, declarative — the concepts behind operating systems that cannot break",
+        "description": "Plain-language explanations of atomic updates, generations, rollback, immutability and declarative configuration, including the difference between image-based systems such as Fedora Silverblue and declarative systems such as NixOS and Golem Linux.",
+        "datePublished": "2026-08-31",
+        "dateModified": "2026-08-31",
+        "inLanguage": "en",
+        "author": { "@type": "Person", "name": "Max Power" },
+        "publisher": { "@type": "Organization", "name": "Golem", "url": "https://golem-os.com" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://golem-os.com/concepts.html" }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Golem Linux", "item": "https://golem-os.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Concepts explained", "item": "https://golem-os.com/concepts.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://golem-os.com/concepts.html",
+        "url": "https://golem-os.com/concepts.html",
+        "name": "Concepts explained",
+        "isPartOf": { "@id": "https://golem-os.com/#website" },
+        "about": { "@id": "https://golem-os.com/#golem" },
+        "publisher": { "@id": "https://golem-os.com/#org" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="compare.html">Compare</a>
+      <a href="faq.html">FAQ</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">Concepts</div>
+        <h1 class="rv in">Atomic, immutable,<br />declarative.</h1>
+        <p class="lead rv in d1" style="margin-top:1.2rem">These words get used
+        interchangeably and they do not mean the same thing. Here is what each one
+        actually means, in plain language, with the distinction almost everybody
+        gets wrong explained at the end.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap prose">
+
+        <h2 class="rv">Atomic update</h2>
+        <p class="rv"><strong>An update that either completes entirely or does not
+        happen at all.</strong> There is no partially-updated state in between.</p>
+        <p class="rv">The new system is built alongside the one you are running, and the
+        machine switches to it in a single step at the end. If the power fails halfway
+        through, you still have the old system, intact and working — not a half-updated
+        one that may not boot. This is the property that makes "an update broke my
+        computer" structurally impossible rather than merely unlikely.</p>
+
+        <h2 class="rv">Generation</h2>
+        <p class="rv"><strong>A complete, bootable snapshot of your system's
+        configuration at one point in time.</strong></p>
+        <p class="rv">On NixOS — and therefore on <a href="index.html">Golem Linux</a> —
+        every change you make produces a new generation, and the previous ones stay on
+        disk and remain selectable at boot. Your machine's history is a list you can
+        step back through. This is not a backup of your files; it is the system itself,
+        preserved.</p>
+
+        <h2 class="rv">Rollback</h2>
+        <p class="rv"><strong>Returning the computer to a previous known-good
+        state.</strong></p>
+        <p class="rv">The important distinction is <em>how</em>. Windows System Restore
+        attempts to undo changes, which is a repair operation and sometimes fails. A
+        rollback between generations is a switch back to a system that <em>still exists
+        in full</em> — nothing is being reconstructed, so nothing can be reconstructed
+        incorrectly. That is why it is reliable rather than best-effort.</p>
+
+        <h2 class="rv">Declarative configuration</h2>
+        <p class="rv"><strong>Describing the state your system should be in, and letting
+        it work out how to get there.</strong></p>
+        <p class="rv">The opposite is imperative: a sequence of commands that change the
+        system step by step, where the current state is the accumulated result of
+        everything you have ever run — including the things you forgot. With declarative
+        configuration the file <em>is</em> the truth, so the same file always produces the
+        same system, and "what is installed on this machine" has an answer you can read.</p>
+
+        <h2 class="rv">Reproducible</h2>
+        <p class="rv"><strong>A system that can be rebuilt to be identical from its
+        description alone.</strong></p>
+        <p class="rv">Same configuration plus same pinned inputs equals the same result,
+        on any machine, at any time. In practice this means a setup that works can be
+        <em>moved</em> rather than approximated — you do not reinstall and spend a week
+        remembering how you had things.</p>
+
+        <h2 class="rv">Nix flake</h2>
+        <p class="rv"><strong>A unit of Nix configuration with every dependency pinned to
+        an exact version in a lock file.</strong></p>
+        <p class="rv">Pinning is what turns "should build the same" into "does build the
+        same". Golem is distributed as a flake, which is why
+        <a href="download.html">two commands</a> on your machine produce the same system
+        the developers run.</p>
+
+        <h2 class="rv">Context engine</h2>
+        <p class="rv"><strong>A component that observes what is happening on the computer
+        and decides which affordances are relevant right now.</strong></p>
+        <p class="rv">Open windows, media playback, battery level, connected devices. In
+        Golem this is <code>options-engine</code>, and it drives what the desktop offers —
+        so interface elements appear when they are useful and are absent when they are
+        not, instead of everything being present all the time and most of it being
+        noise. <a href="options.html">The philosophy behind it →</a></p>
+
+        <h2 class="rv">Wayland compositor</h2>
+        <p class="rv"><strong>The program that draws windows and handles input on a
+        modern Linux desktop.</strong></p>
+        <p class="rv">It replaces the older X11 display server and combines the jobs of
+        window manager and display server into one. Golem uses a customized
+        <strong>Hyprland</strong>.</p>
+
+        <hr />
+
+        <h2 class="rv">The one everybody gets wrong: immutable vs declarative</h2>
+        <p class="rv">These get used as synonyms in almost every article comparing modern
+        Linux distributions. They describe different properties, and the difference is
+        the entire reason Golem is built on NixOS rather than on an image-based system.</p>
+
+        <div class="table-scroll rv" style="margin-top:1.5rem">
+          <table class="cmp">
+            <caption>Two different properties, often confused.</caption>
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">Immutable (image-based)</th>
+                <th scope="col" class="mine">Declarative</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">What it protects</th>
+                <td style="white-space:normal">A base someone else assembled and shipped as an image</td>
+                <td class="mine" style="white-space:normal">The description of the entire machine, including your applications</td>
+              </tr>
+              <tr>
+                <th scope="row">How you change it</th>
+                <td style="white-space:normal">Layer packages on top of the read-only base</td>
+                <td class="mine" style="white-space:normal">Edit the configuration and rebuild</td>
+              </tr>
+              <tr>
+                <th scope="row">Rebuild it elsewhere?</th>
+                <td style="white-space:normal">Same base image, but your layers are not part of it</td>
+                <td class="mine" style="white-space:normal">Yes — the whole machine, identically</td>
+              </tr>
+              <tr>
+                <th scope="row">Rollback granularity</th>
+                <td style="white-space:normal">Back to a previous image</td>
+                <td class="mine" style="white-space:normal">Back to any previous state of the whole system</td>
+              </tr>
+              <tr>
+                <th scope="row">Examples</th>
+                <td style="white-space:normal">Fedora Silverblue, Vanilla OS, openSUSE Aeon</td>
+                <td class="mine" style="white-space:normal">NixOS, Guix, and Golem Linux</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="rv" style="margin-top:1.6rem">The short version: <strong>immutability is
+        a defence, declarativeness is a description.</strong> An immutable system stops
+        the base from being damaged. A declarative system knows what the machine is
+        supposed to be, which means it can rebuild it — base, applications, settings and
+        all — anywhere, from a file.</p>
+        <p class="rv">Both give you atomic updates and both give you rollback, so for the
+        everyday question "can an update break my computer?" they answer the same way:
+        no. The difference shows up when you want to move to a new machine, when you
+        want to know exactly what your system contains, or when you want your
+        applications covered by the same guarantee as the base.</p>
+
+        <div class="callout blue rv"><b>Practical note.</b> If you want these properties
+        on a finished desktop <em>today</em>, install Fedora Silverblue — Golem is
+        pre-alpha and Silverblue is not. If you want the declarative version and are
+        willing to learn the Nix language, install NixOS. Golem exists to remove that
+        last requirement. <a href="choose.html">Our full honest guide →</a></div>
+
+        <hr />
+        <p class="close rv">Vocabulary should clarify, not gatekeep. If something here is
+        unclear or wrong, <a href="mailto:indeepandes@gmail.com">tell us</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
+          <a href="choose.html">Which Linux?</a> · <a href="concepts.html">Concepts</a> ·
+          <a href="faq.html">FAQ</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>

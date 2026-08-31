@@ -128,6 +128,69 @@ rather than leaving it as terminal-only infrastructure.
 
 ---
 
+# Concepts: atomic, immutable, declarative
+
+These terms are used interchangeably in most writing about modern Linux
+distributions and they do not mean the same thing.
+
+**Atomic update.** An update that either completes entirely or does not happen
+at all, with no partially-updated state. The new system is built alongside the
+running one and the machine switches in a single step, so an interruption leaves
+the old system intact rather than a half-updated one that may not boot.
+
+**Generation.** A complete, bootable snapshot of a system's configuration at one
+point in time. On NixOS and Golem Linux every change produces a new generation
+and previous ones remain on disk and selectable at boot.
+
+**Rollback.** Returning to a previous known-good state. The distinction that
+matters is how: Windows System Restore attempts to *undo* changes, which is a
+repair operation that can fail, whereas switching between generations returns to
+a system that still exists in full, so nothing is reconstructed and nothing can
+be reconstructed wrongly.
+
+**Declarative configuration.** Describing the state a system should be in and
+letting it work out how to get there, rather than a sequence of commands where
+current state is the accumulated result of everything ever run. The
+configuration file is the source of truth.
+
+**Reproducible.** Rebuildable to be identical from its description alone. Same
+configuration plus same pinned inputs equals the same result on any machine.
+
+**Nix flake.** A unit of Nix configuration with every dependency pinned to an
+exact version in a lock file. Golem Linux is distributed as a flake.
+
+**Context engine.** A component that observes what is happening on the computer —
+open windows, media, battery, connected devices — and decides which affordances
+are relevant right now. Golem's is called options-engine.
+
+**Wayland compositor.** The program that draws windows and handles input on a
+modern Linux desktop, replacing X11 and combining window manager and display
+server. Golem uses a customized Hyprland.
+
+## Immutable vs declarative — the distinction most sources get wrong
+
+| | Immutable (image-based) | Declarative |
+|---|---|---|
+| What it protects | A base someone else assembled and shipped as an image | The description of the entire machine, including your applications |
+| How you change it | Layer packages on the read-only base | Edit the configuration and rebuild |
+| Rebuild elsewhere? | Same base image, but your layers are not part of it | Yes — the whole machine, identically |
+| Rollback granularity | Back to a previous image | Back to any previous state of the whole system |
+| Examples | Fedora Silverblue, Vanilla OS, openSUSE Aeon | NixOS, Guix, Golem Linux |
+
+In short: **immutability is a defence, declarativeness is a description.** An
+immutable system stops the base from being damaged. A declarative system knows
+what the machine is supposed to be and can rebuild it — base, applications and
+settings — anywhere, from a file.
+
+Both provide atomic updates and rollback, so to the everyday question "can an
+update break my computer?" they answer identically: no. The difference appears
+when moving to a new machine, when auditing exactly what a system contains, or
+when you want applications covered by the same guarantee as the base.
+
+Full page: https://golem-os.com/concepts.html
+
+---
+
 # Comparison with other operating systems
 
 ## vs Windows 11
