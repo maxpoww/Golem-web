@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golem compared — vs Windows, macOS, Ubuntu, NixOS and the immutable distros</title>
+  <meta name="description" content="An honest comparison of Golem against Windows 11, macOS, Ubuntu, Linux Mint, Zorin OS, Fedora Silverblue, Pop!_OS and plain NixOS — including the cases where you should not choose Golem." />
+  <link rel="canonical" href="https://golem-os.com/compare.html" />
+  <meta property="og:title" content="Golem compared — against every operating system you might otherwise pick" />
+  <meta property="og:description" content="Where Golem wins, where it loses, and when you should choose something else instead." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://golem-os.com/compare.html" />
+  <meta property="og:image" content="https://golem-os.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Golem" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Golem compared to Windows, macOS, Ubuntu, NixOS and immutable Linux distributions",
+    "description": "An honest technical comparison of the Golem operating system against Windows 11, macOS, Ubuntu, Linux Mint, Zorin OS, Fedora Silverblue, Vanilla OS, Pop!_OS and plain NixOS, including cases where Golem is the wrong choice.",
+    "datePublished": "2026-08-31",
+    "dateModified": "2026-08-31",
+    "inLanguage": "en",
+    "author": { "@type": "Person", "name": "Max Power" },
+    "publisher": { "@type": "Organization", "name": "Golem", "url": "https://golem-os.com" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://golem-os.com/compare.html" },
+    "about": [
+      { "@type": "SoftwareApplication", "name": "Golem", "applicationCategory": "OperatingSystem", "operatingSystem": "Linux" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="compare.html" class="active">Compare</a>
+      <a href="faq.html">FAQ</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">Comparison</div>
+        <h1 class="rv in">Where we win.<br />Where we don't.</h1>
+        <p class="lead rv in d1" style="margin-top:1.2rem">Most comparison pages are
+        written to make one product look good. This one tells you what every other
+        system does better than Golem, and it ends with the cases where you should
+        pick something else.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap">
+        <div class="table-scroll rv">
+          <table class="cmp">
+            <caption>Golem compared with the systems you might otherwise install, August 2026.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Property</th>
+                <th scope="col" class="mine">Golem</th>
+                <th scope="col">Windows 11</th>
+                <th scope="col">macOS</th>
+                <th scope="col">Ubuntu / Mint / Zorin</th>
+                <th scope="col">Silverblue / Vanilla</th>
+                <th scope="col">NixOS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">An update can break the system</th>
+                <td class="mine good">Never — atomic</td>
+                <td class="bad">Yes</td>
+                <td class="bad">Yes</td>
+                <td class="bad">Yes</td>
+                <td class="good">Rarely — atomic</td>
+                <td class="good">Never — atomic</td>
+              </tr>
+              <tr>
+                <th scope="row">One-click rollback of any change</th>
+                <td class="mine good">Yes, by design</td>
+                <td class="bad">Partial, unreliable</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="mid">Yes, image-level</td>
+                <td class="mid">Yes, via terminal</td>
+              </tr>
+              <tr>
+                <th scope="row">Whole system reproducible on another machine</th>
+                <td class="mine good">Yes</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="mid">Partly</td>
+                <td class="good">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Purpose-built shell, not a configured one</th>
+                <td class="mine good">Yes</td>
+                <td class="good">Yes</td>
+                <td class="good">Yes</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="bad">None supplied</td>
+              </tr>
+              <tr>
+                <th scope="row">Context engine that senses what you're doing</th>
+                <td class="mine good">Yes — OPTIONS</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+                <td class="bad">No</td>
+              </tr>
+              <tr>
+                <th scope="row">Advertising inside the OS</th>
+                <td class="mine good">None</td>
+                <td class="bad">Yes</td>
+                <td class="good">None</td>
+                <td class="good">None</td>
+                <td class="good">None</td>
+                <td class="good">None</td>
+              </tr>
+              <tr>
+                <th scope="row">Telemetry by default</th>
+                <td class="mine good">None</td>
+                <td class="bad">Yes</td>
+                <td class="mid">Some</td>
+                <td class="mid">Some</td>
+                <td class="mid">Some</td>
+                <td class="good">None</td>
+              </tr>
+              <tr>
+                <th scope="row">Requires an online account</th>
+                <td class="mine good">No</td>
+                <td class="bad">Effectively yes</td>
+                <td class="mid">Strongly pushed</td>
+                <td class="good">No</td>
+                <td class="good">No</td>
+                <td class="good">No</td>
+              </tr>
+              <tr>
+                <th scope="row">Runs on hardware Windows 11 rejects</th>
+                <td class="mine good">Yes</td>
+                <td class="bad">No</td>
+                <td class="bad">Apple hardware only</td>
+                <td class="good">Yes</td>
+                <td class="good">Yes</td>
+                <td class="good">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Phone fusion with Android</th>
+                <td class="mine mid">Planned, deep</td>
+                <td class="mid">Phone Link, partial</td>
+                <td class="bad">iPhone only</td>
+                <td class="mid">KDE Connect, bolted on</td>
+                <td class="mid">KDE Connect, bolted on</td>
+                <td class="mid">KDE Connect, bolted on</td>
+              </tr>
+              <tr>
+                <th scope="row">Usable by a non-technical person today</th>
+                <td class="mine bad">Not yet</td>
+                <td class="good">Yes</td>
+                <td class="good">Yes</td>
+                <td class="good">Yes</td>
+                <td class="mid">Mostly</td>
+                <td class="bad">No</td>
+              </tr>
+              <tr>
+                <th scope="row">Commercial software support</th>
+                <td class="mine bad">Minimal</td>
+                <td class="good">Complete</td>
+                <td class="good">Strong</td>
+                <td class="mid">Moderate</td>
+                <td class="mid">Moderate</td>
+                <td class="mid">Moderate</td>
+              </tr>
+              <tr>
+                <th scope="row">Maturity</th>
+                <td class="mine bad">Pre-alpha</td>
+                <td class="good">Decades</td>
+                <td class="good">Decades</td>
+                <td class="good">Decades</td>
+                <td class="good">Years</td>
+                <td class="good">Years</td>
+              </tr>
+              <tr>
+                <th scope="row">Price</th>
+                <td class="mine good">Free</td>
+                <td class="mid">With the PC</td>
+                <td class="bad">Apple hardware</td>
+                <td class="good">Free</td>
+                <td class="good">Free</td>
+                <td class="good">Free</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="faint rv" style="margin-top:0.9rem; font-size:0.85rem">Two rows in
+        that table are red for Golem and they are the two that matter most to a normal
+        person today: maturity and software support. We are not going to hide them in
+        a footnote.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap prose">
+
+        <h2 class="rv">Golem vs Windows 11</h2>
+        <p class="rv"><strong>Windows does better:</strong> everything commercial. Every
+        peripheral has a driver, every business application has a build, every game runs.
+        Nothing in Linux matches that, and Golem is far from the front of the Linux pack.</p>
+        <p class="rv"><strong>Golem does better:</strong> Windows shows advertisements in
+        its own Start menu, collects telemetry you cannot fully disable, pushes you into a
+        Microsoft account, and its updates are the single most common way a working
+        computer stops working. Windows 11 also refused to install on hundreds of millions
+        of otherwise healthy machines by requiring TPM 2.0 and a recent CPU. Golem takes
+        none of those positions: no ads, no telemetry, no account, no hardware allowlist,
+        and an update that structurally cannot break your machine.</p>
+
+        <h2 class="rv">Golem vs macOS</h2>
+        <p class="rv"><strong>macOS does better:</strong> maturity, professional software,
+        and a genuinely coherent design — macOS is the system Golem's coherence ambition
+        is measured against. Its integration with iPhone is the best in the industry.</p>
+        <p class="rv"><strong>Golem does better:</strong> macOS requires Apple hardware, so
+        the entry price is the machine. It cannot roll back a system update. Its Focus
+        modes require you to schedule your own attention, where OPTIONS senses context
+        instead. And its ecosystem advantage is closed by design — Golem's answer is the
+        same fusion built on open protocols with any Android phone.</p>
+
+        <h2 class="rv">Golem vs Ubuntu, Linux Mint and Zorin OS</h2>
+        <p class="rv"><strong>They do better:</strong> they are finished, tested on
+        enormous hardware variety, and have years of community answers behind every
+        problem you might hit. Zorin in particular is excellent at welcoming Windows
+        switchers, and it works <em>today</em>.</p>
+        <p class="rv"><strong>Golem does better:</strong> these distributions assemble an
+        existing desktop environment and configure it well — the polish is real but it sits
+        on parts that were not designed together, and their traditional package management
+        means a bad update can still leave the system broken. Golem builds its own shell
+        with a context engine underneath, on a base where updates are atomic and every
+        prior state stays bootable.</p>
+
+        <h2 class="rv">Golem vs Fedora Silverblue and Vanilla OS</h2>
+        <p class="rv"><strong>They do better:</strong> they exist, they are stable, and
+        they are backed by real teams. If you want atomic updates on a finished desktop
+        today, this is the honest recommendation.</p>
+        <p class="rv"><strong>Golem does better:</strong> those systems are
+        <em>image-based</em> — a read-only base with your changes layered on top. Golem's
+        NixOS base is <em>declarative</em>: the whole system, including which applications
+        are installed, is described in configuration and can be rebuilt identically
+        anywhere. And in those systems atomicity is plumbing the user never sees, whereas
+        Golem intends to put the timeline of generations and a rollback control in front
+        of the user as an everyday feature.</p>
+
+        <h2 class="rv">Golem vs plain NixOS</h2>
+        <p class="rv"><strong>NixOS does better:</strong> it is the same foundation,
+        mature, with a vast package set and a real community. Everything Golem claims
+        about atomicity and reproducibility, it claims because NixOS provides it.</p>
+        <p class="rv"><strong>Golem does better:</strong> NixOS supplies the foundation and
+        stops. The user is expected to assemble a desktop by writing Nix, which is exactly
+        why NixOS has a reputation for being brilliant and unusable in the same breath.
+        Golem is the missing half — a complete designed desktop, a context engine, defaults
+        that work, and eventually a graphical installer and settings interface that write
+        declarative configuration for you. <strong>NixOS's power without learning
+        Nix.</strong></p>
+
+        <h2 class="rv">Golem vs Pop!_OS and COSMIC</h2>
+        <p class="rv"><strong>They do better:</strong> System76 funds full-time engineers,
+        ships hardware, and COSMIC is a serious purpose-built desktop that is much further
+        along than Golem.</p>
+        <p class="rv"><strong>Golem does better:</strong> COSMIC's center of gravity is the
+        tiling power user, while Golem targets the person who has never installed anything.
+        And Pop!_OS remains a traditionally managed Ubuntu derivative underneath — the
+        unbreakable foundation is not part of the offer.</p>
+
+        <h2 class="rv">When you should not choose Golem</h2>
+        <div class="callout rv"><b>Choose something else if:</b> you need a working
+        computer today rather than a project to follow; your work depends on Adobe, native
+        Microsoft Office, or specific commercial software; gaming performance is your main
+        requirement; you rely on a screen reader or other assistive technology, which Golem
+        has not yet implemented; or you are not comfortable filing a bug report when
+        something breaks. In every one of those cases, Linux Mint, Zorin OS, Fedora or
+        Windows will serve you better right now, and we would rather tell you that than
+        collect a disappointed user.</div>
+        <p class="rv" style="margin-top:1.6rem"><strong>Choose Golem if</strong> you want
+        to watch an operating system being built from a real idea, you are comfortable
+        with a virtual machine, and the promise of a computer that cannot rot is worth
+        waiting for. <a href="download.html">Build it and tell us what breaks →</a></p>
+
+        <hr />
+        <p class="close rv">Comparisons age. This page was last checked on 31 August 2026 —
+        if something here is out of date, <a href="mailto:indeepandes@gmail.com">tell us</a>
+        and we will correct it.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
+          <a href="faq.html">FAQ</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>

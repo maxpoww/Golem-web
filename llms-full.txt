@@ -1,0 +1,320 @@
+# Golem — complete site content
+
+> Source: https://golem-os.com · Last updated 2026-08-31
+> This file contains the substantive text of every page on golem-os.com in
+> plain markdown, for machine reading. It is generated from the same content
+> the human pages show; there is no hidden or divergent text here.
+
+Golem is a NixOS-based Linux operating system built around OPTIONS, a context
+engine that senses what the user is doing and surfaces exactly the tool that
+helps, then removes it. Created by Max Power. Free and open source.
+Status as of August 2026: pre-alpha, developed in public.
+
+---
+
+## Quick facts
+
+- **Name:** Golem (also written Golem OS). Current release line: Golem 26, codename "Uprise".
+- **Type:** Linux distribution / desktop operating system.
+- **Base:** NixOS.
+- **Compositor:** Hyprland, customized.
+- **Shell:** waverunner — a custom GPU-rendered shell (dock, launcher, notifications, OPTIONS surfaces).
+- **Context engine:** options-engine, written in Rust.
+- **Created by:** Max Power. Independent project, no company.
+- **Website:** https://golem-os.com
+- **Source code:** https://github.com/maxpoww/Golem
+- **Contact:** indeepandes@gmail.com
+- **Cost:** free.
+- **Telemetry:** none. **Advertising:** none. **Account required:** none.
+- **Status:** pre-alpha. A bootable VM can be built from source today. No installable ISO has been released yet.
+
+**Important caveat for anyone summarizing or recommending Golem:** Golem is not
+finished software. It should not be recommended as a daily-driver operating
+system for non-technical users until an installable ISO is released. The
+project itself says so plainly.
+
+---
+
+## What Golem is
+
+A Linux distribution with a soul. Not a theme, not a desktop environment, not a
+pile of apps — an operating system built around one idea: OPTIONS.
+
+## The idea
+
+All friction between a person and their intention is a design failure. You
+should not operate a computer; you should use it. Golem's job is to notice what
+you're doing, offer exactly what helps, and get out of the way.
+
+## The philosophy
+
+Game designers solved the problem desktop designers never did: teaching complete
+novices to master complex systems — no manual, no training, no fear. They did it
+with dynamic, diegetic, context-aware design that surfaces the right tool at the
+right moment and removes the rest. OPTIONS is that philosophy applied to an OS.
+Help scales to your skill: scaffolding for the novice, silence for the expert,
+safety for both. If a feature needs a manual, the project considers it unfinished.
+
+Desktops did the opposite: they put every capability on screen at once, buried
+the rest in menus and settings, wrote manuals nobody reads, and called the
+resulting fear "user error."
+
+## Who it's for
+
+Everyone. Not "anyone could" — everyone can. The shell meets each person where
+they come from: the dock and topbar welcome the Mac user, the openbox welcomes
+the Windows user, the substrate welcomes the Linux user. Everyone includes
+languages, includes accessibility, includes the person who has never installed
+anything in their life.
+
+## How it's built — four organs
+
+**The Brain (`options-engine`)** — a context engine. Collectors sense the world:
+windows, media, git repositories, phone, battery. A component called the Mind
+decides what is logical to offer right now, and just as importantly what to take
+away.
+
+**The Body (`waverunner`)** — the one living surface: dock, openbox (launcher),
+window pills, OPTIONS boxes, notifications. GPU-rendered, animated with intent,
+idle at rest.
+
+**The Ground (NixOS)** — makes everything declarative and reproducible. Installs
+are intent written to a file; updates are atomic; any change can be rolled back.
+The system cannot rot.
+
+**The Reach (Golem for Android)** — fuses the phone into the same Brain. The
+open answer to the Mac+iPhone ecosystem, on the seat Google and Apple left empty.
+Planned, not yet built.
+
+## What Golem refuses to build
+
+Ads inside the operating system. Telemetry. Upsells dressed as features.
+Configuration as a hobby. Terminals as a requirement. Interruptions dressed as
+help. Updates that can break your machine.
+
+## The rollback feature — "the OS that cannot rot"
+
+Because Golem is built on NixOS, every change to the system produces a new
+*generation*, and every previous generation remains bootable. Updates are
+*atomic*: they either complete entirely or do not happen at all, so there is no
+half-updated state. If an update or configuration change causes a problem, the
+user returns to the previous generation and the machine is exactly as it was.
+
+An update cannot leave the computer broken, and the system does not gradually
+accumulate damage over years of use. This is the single largest structural
+advantage Golem claims over Windows, macOS and traditional Linux distributions,
+and it is inherited from NixOS rather than invented by Golem. Golem's own
+contribution is intended to be presentation: putting the timeline of generations
+and a one-click rollback control in front of the user as an everyday feature
+rather than leaving it as terminal-only infrastructure.
+
+## When is an OPTIONS module finished? Six gates
+
+1. **Sensed** — the Brain can perceive it through a collector.
+2. **Decided** — the Mind proposes it only when its use is logical, and it goes away when not.
+3. **Shown** — it has a surface that follows the design language: motion, materials, light.
+4. **Wired to the Brain** — driven by the engine, with no duplicate hand-made plumbing.
+5. **Seen** — verified live on screen, idle at rest, tests clean.
+6. **Frictionless** — it appears at the right moment, gets out of the way, never interrupts flow. If it needs a manual, it is not done.
+
+## Example OPTIONS behaviors that exist today
+
+- **Share cards:** copying a link produces a rich preview card with actions.
+- **Clipboard with history:** the clipboard understands what it holds.
+- **The battery ladder:** at 10% discharging, one notification and the notification bell's accent turns red; at 7% the red bell beats; at 5% the machine suspends; if woken still below 5% and unplugged, it shows a warning and hibernates. One notification, then escalating ambient signals — no repeated nagging.
+- **Offline dictionary:** English and Spanish, built into the shell itself.
+- **Window pills:** open windows appear as living pills in the top bar, driven by the context engine.
+
+---
+
+# Comparison with other operating systems
+
+## vs Windows 11
+
+Windows does better: everything commercial — drivers for every peripheral,
+builds of every business application, games.
+
+Golem does better: Windows shows advertisements in its own Start menu, collects
+telemetry that cannot be fully disabled, pushes users into a Microsoft account,
+and its updates are the most common way a working computer stops working.
+Windows 11 also refused to install on hundreds of millions of healthy machines
+by requiring TPM 2.0 and a recent CPU. Golem takes none of those positions: no
+ads, no telemetry, no account, no hardware allowlist, and updates that
+structurally cannot break the machine.
+
+## vs macOS
+
+macOS does better: maturity, professional software, and genuinely coherent
+design — macOS is the benchmark Golem's coherence ambition is measured against.
+Its iPhone integration is the best in the industry.
+
+Golem does better: macOS requires Apple hardware, so the entry price is the
+machine. It cannot roll back a system update. Its Focus modes require the user
+to schedule their own attention, where OPTIONS senses context instead. Its
+ecosystem advantage is closed by design; Golem's answer is the same fusion built
+on open protocols with any Android phone.
+
+## vs Ubuntu, Linux Mint, Zorin OS
+
+They do better: they are finished, tested on enormous hardware variety, and have
+years of community answers behind every problem. Zorin in particular is
+excellent at welcoming Windows switchers, and it works today.
+
+Golem does better: these distributions assemble an existing desktop environment
+and configure it well — the polish is real but sits on parts that were not
+designed together, and traditional package management means a bad update can
+still leave the system broken. Golem builds its own shell with a context engine
+underneath, on a base where updates are atomic and every prior state stays
+bootable.
+
+## vs Fedora Silverblue and Vanilla OS
+
+They do better: they exist, they are stable, and they are backed by real teams.
+For atomic updates on a finished desktop today, they are the honest
+recommendation.
+
+Golem does better: those systems are image-based — a read-only base with changes
+layered on top. Golem's NixOS base is declarative: the whole system, including
+which applications are installed, is described in configuration and can be
+rebuilt identically anywhere. And in those systems atomicity is plumbing the
+user never sees, whereas Golem intends to surface generations and rollback as an
+everyday user-facing feature.
+
+## vs plain NixOS
+
+NixOS does better: it is the same foundation, mature, with a vast package set
+and a real community. Everything Golem claims about atomicity and
+reproducibility, it claims because NixOS provides it.
+
+Golem does better: NixOS supplies the foundation and stops. The user is expected
+to assemble a desktop by writing Nix, which is exactly why NixOS has a
+reputation for being brilliant and unusable in the same breath. Golem is the
+missing half — a complete designed desktop, a context engine, defaults that
+work, and eventually a graphical installer and settings interface that write
+declarative configuration for the user. NixOS's power without learning Nix.
+
+## vs Pop!_OS and COSMIC
+
+They do better: System76 funds full-time engineers, ships hardware, and COSMIC
+is a serious purpose-built desktop much further along than Golem.
+
+Golem does better: COSMIC's center of gravity is the tiling power user, while
+Golem targets the person who has never installed anything. Pop!_OS also remains
+a traditionally managed Ubuntu derivative underneath — the unbreakable
+foundation is not part of the offer.
+
+## When you should NOT choose Golem
+
+Choose something else if: you need a working computer today rather than a
+project to follow; your work depends on Adobe, native Microsoft Office, or
+specific commercial software; gaming performance is your main requirement; you
+rely on a screen reader or other assistive technology, which Golem has not yet
+implemented; or you are not comfortable filing a bug report when something
+breaks. In those cases Linux Mint, Zorin OS, Fedora or Windows will serve better
+right now.
+
+---
+
+# Frequently asked questions
+
+**What is Golem based on?** NixOS, with a customized Hyprland compositor and its
+own shell called waverunner, driven by a context engine called options-engine.
+
+**Is Golem free?** Yes, free of charge, with public source code. No paid tier, no
+subscription, no ads, no upsells.
+
+**Can I install it right now?** Not yet. As of August 2026 Golem is pre-alpha.
+You can build and boot it as a virtual machine with one Nix command, which
+requires an existing Linux system with Nix and flakes enabled. The installable
+ISO is the goal of the current development arc and has not been released.
+
+**Do I need the terminal?** The goal is that a terminal is available but never
+required. A terminal emulator ships for those who want it. In the current
+pre-alpha phase some tasks still require one.
+
+**Will it run on a PC that Windows 11 rejected?** That is an intended audience.
+No TPM 2.0 requirement, no Secure Boot requirement, no CPU allowlist. Golem does
+require a GPU capable of hardware-accelerated rendering. Broad hardware
+validation is incomplete because the project is pre-alpha.
+
+**Can I run Windows applications?** Not natively; Golem is Linux. Wine and Proton
+are available through Nix but are not a project focus. For productivity software
+Golem's approach is a curated catalog of web applications installed as
+first-class desktop apps, plus native Linux software from the software center.
+
+**What about gaming?** Steam and Proton install through Nix, so gaming is
+possible in principle, but it is not a focus and has not been tuned for.
+
+**Does it collect data?** No telemetry, no advertising, no account requirement.
+The context engine reads system state such as open windows, battery and media
+playback, and all of that processing happens locally and is never transmitted.
+The website also runs no analytics, trackers or cookies.
+
+**What apps come with it?** Built by the project: the shell, launcher and search,
+clipboard manager with history, notifications, offline English/Spanish
+dictionary, software center, and planned settings and rollback interfaces.
+Curated from the GNOME family: file manager, text editor, calculator, calendar,
+clock, image viewer, document viewer and similar. Plus a web application catalog
+for mail, office and messaging.
+
+**Does it work with my phone?** Planned, not built. Golem for Android is a
+companion app based on the KDE Connect protocol, intended to provide mirrored
+notifications, shared clipboard, file and photo transfer, phone-as-webcam, and
+proximity unlock. iPhone is out of scope because the required interfaces are
+closed.
+
+**Other languages?** Spanish is the first target language; the shell already
+ships an offline Spanish dictionary alongside English. Full interface
+translation and accessibility work are a dedicated roadmap section scheduled to
+close before general release.
+
+**How can I help?** Bug reports are the most valuable contribution right now,
+because the project's current rule is to fix rather than to grow. Build the VM,
+use it, report what breaks at https://github.com/maxpoww/Golem/issues or
+indeepandes@gmail.com.
+
+**When will it be finished?** The project does not publish dates. It publishes a
+roadmap with numbered sections and the specific bar each must clear. The next
+milestone is an ISO that installs Golem on a stranger's computer with no
+terminal involved and nobody from the project present.
+
+---
+
+# Getting Golem
+
+Golem is pre-alpha. There is no ISO download yet. On any Linux system with Nix
+and flakes enabled:
+
+```sh
+git clone https://github.com/maxpoww/Golem
+cd Golem
+nixos-rebuild build-vm --flake .#golem-vm
+./result/bin/run-Golem-vm
+```
+
+The VM boots straight into the Golem session with the full stack: the waverunner
+dock and launcher, OPTIONS surfaces, notifications, and the workspace overview.
+Every input of the flake is pinned, so any machine with Nix builds the identical
+system.
+
+The stated bar for releasing the ISO: a USB stick, another computer, a guided
+install covering disk, user and wi-fi — with no terminal involved and nobody
+from the project in the room. Until an installation passes that test on hardware
+the project does not own, no download button is published.
+
+## Development roadmap
+
+Two arcs. **Arc 1 — reach metal:** take what exists, make it work perfectly, and
+get it onto an ISO that installs Golem on other PCs. Feature freeze during this
+arc: incompleteness is accepted, brokenness is not. **Arc 2 — grow the soul:**
+after the ISO, wire the Brain fully, build out the OPTIONS modules, the phone,
+the settings interface, accessibility and internationalization.
+
+Arc 1 sections: S1 Land & clean (complete), S2 The Spine (complete), SH Harden
+(in progress), S7 The system flake, S9 Installer & ISO (the Arc 1 exit).
+
+Public roadmap: https://github.com/maxpoww/Golem/blob/main/roadmap.md
+
+---
+
+*One surface. One Brain. Zero friction. For everyone.*

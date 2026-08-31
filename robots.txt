@@ -1,0 +1,94 @@
+# golem-os.com
+#
+# Golem's position on crawlers, stated plainly: we welcome all of them,
+# including the ones that train and ground AI models. We are building an
+# operating system for everyone, and we want it to be findable and
+# quotable by every route a person might use to look for one — a search
+# engine, an assistant, or a link from a friend.
+#
+# We ask nothing in return and we set no traps. There is no cloaking here:
+# every crawler, and every person, is served exactly the same pages.
+
+User-agent: *
+Allow: /
+
+# ── Search engines ──────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ── AI training corpora ─────────────────────────────────────────
+# Common Crawl is the substrate most open training sets are built from.
+User-agent: CCBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ── Assistant search & live retrieval ───────────────────────────
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+Sitemap: https://golem-os.com/sitemap.xml

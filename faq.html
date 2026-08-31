@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golem FAQ — questions about the OS, answered directly</title>
+  <meta name="description" content="Direct answers about Golem: what it is based on, whether it is free, what hardware it runs on, application compatibility, privacy, the terminal, and the project's real status." />
+  <link rel="canonical" href="https://golem-os.com/faq.html" />
+  <meta property="og:title" content="Golem FAQ — questions about the OS, answered directly" />
+  <meta property="og:description" content="What Golem is based on, what it runs on, what it can and cannot do yet — answered without marketing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://golem-os.com/faq.html" />
+  <meta property="og:image" content="https://golem-os.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Golem" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Golem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golem is a Linux operating system built on NixOS, designed around a single idea called OPTIONS: the system senses what you are doing and offers exactly the tool that helps, then gets out of the way. It is not a theme or a desktop environment layered on an existing distribution — the shell, the context engine, and the system layer are designed as one organism. The current release line is Golem 26, codenamed Uprise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Golem based on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golem is based on NixOS. It uses a customized Hyprland compositor and its own shell called waverunner, driven by a context engine called options-engine. NixOS is what makes Golem's defining feature possible: the entire system is declared in configuration files, updates are atomic, and every previous system state is kept as a generation you can boot back into."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Golem free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Golem is free of charge and its source code is public on GitHub. There is no paid tier, no subscription, no advertisements inside the operating system, and no upsells."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I install Golem on my computer right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not yet. Golem is pre-alpha as of August 2026. Today you can build and boot the complete Golem desktop as a virtual machine using one Nix command, which requires an existing Linux system with Nix and flakes enabled. The installable ISO image that would let you put Golem on a physical computer is the explicit goal of the current development arc and has not been released. Golem is not yet suitable as a daily-driver operating system for non-technical users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it mean that Golem cannot rot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because Golem is built on NixOS, every change to the system produces a new generation, and every previous generation remains bootable. Updates are atomic, meaning they either complete entirely or do not happen at all — there is no half-updated state. If an update or a configuration change causes a problem, you return to the previous generation and the machine is exactly as it was. An update cannot leave your computer broken, and the system does not gradually accumulate damage over years of use the way conventionally managed systems do."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to use the terminal to use Golem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That is the goal, and it is not fully true yet. Golem's stated promise is that a terminal is available but never required. A terminal emulator ships with the system for people who want it. During the current pre-alpha phase some system tasks still require one, and closing those gaps is what the project's roadmap is for."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will Golem run on an older PC that Windows 11 will not support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That is one of Golem's intended audiences. Golem has no TPM 2.0 requirement, no Secure Boot requirement, and no CPU allowlist, so it targets machines that Windows 11 refuses to install on. Golem does require a GPU capable of hardware-accelerated rendering because its shell is GPU-rendered. Because Golem is pre-alpha, broad hardware validation on varied machines has not been completed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run Windows applications on Golem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golem is a Linux system, so Windows applications do not run natively. The usual Linux compatibility layers, Wine and Proton, are available through Nix, but making them work smoothly is not something Golem has focused on yet. For common productivity software, Golem's approach is a curated catalog of web applications — Gmail, Google Docs, Office on the web, Spotify, WhatsApp and similar — installed as first-class desktop applications, plus native Linux software from the built-in software center."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Golem collect telemetry or personal data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Golem collects no telemetry, contains no advertising, and requires no online account to install or use. The context engine that powers OPTIONS reads system state such as open windows, battery level and media playback, and all of that processing happens locally on the machine and is never transmitted anywhere. The project website also runs no analytics, trackers or cookies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Golem different from Ubuntu, Linux Mint, or Zorin OS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Those distributions assemble an existing desktop environment, such as GNOME or Cinnamon, and configure and theme it well. Golem builds its own shell and a context engine underneath it, so the desktop behaves as one designed system rather than a set of well-chosen parts. The second difference is the foundation: Ubuntu, Mint and Zorin use traditional package management, where an interrupted or bad update can leave a system in a broken state. Golem's NixOS base makes updates atomic and fully reversible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Golem different from plain NixOS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NixOS provides the declarative, atomic, reproducible foundation but leaves the desktop experience to the user, who is expected to assemble and configure it by writing Nix configuration. That work is precisely what makes NixOS difficult for non-technical users. Golem supplies the missing half: a complete designed desktop, a context engine, sensible defaults, and eventually a graphical installer and settings interface that write declarative configuration on the user's behalf. The intent is NixOS's power without requiring the user to learn Nix."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Golem different from immutable distributions like Fedora Silverblue or Vanilla OS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Those systems are image-based: they ship a read-only base image and you layer changes on top, and rollback means returning to a previous image. Golem's NixOS base is declarative rather than image-based, which means the entire system including installed software is described in configuration and can be rebuilt identically on another machine. The other difference is presentation. In Silverblue and Vanilla OS, atomic updates are infrastructure the user rarely sees; in Golem, the timeline of system generations and a rollback control are intended to be a visible, everyday feature."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Golem work with my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This is planned and not yet built. Golem for Android is a companion application, based on the mature and open KDE Connect protocol, that is intended to plug an Android phone into the same context engine that drives the desktop: mirrored notifications, a shared clipboard, file and photo transfer, using the phone as a webcam, and unlocking the PC when the phone is nearby. Apple's iPhone is out of scope because the required interfaces are closed. The pairing is deliberately a Golem PC with any Android phone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What applications come with Golem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golem builds only what it considers part of its own soul and curates the rest from existing open-source software. Built by the project: the shell, launcher and search, a clipboard manager with history, notifications, an offline English and Spanish dictionary, a software center, and the planned settings and rollback interfaces. Curated from the GNOME application family: the file manager, text editor, calculator, calendar, clock, image viewer, document viewer and similar everyday tools. Beyond that, a catalog of web applications covers mail, office suites and messaging."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who makes Golem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golem is created by Max Power and developed entirely in public, including the source code, the roadmap, the design documents and the known bugs. It is an independent project with no company behind it. Contact: indeepandes@gmail.com."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Golem available in languages other than English?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Spanish is the first target language and the shell already ships an offline Spanish dictionary alongside English. Full interface translation, along with keyboard-only operation, screen reader support and other accessibility work, is a dedicated cross-cutting section of the roadmap that is scheduled to close last, before a general release."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I help the Golem project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most valuable contribution during the current phase is bug reports, because the project's present rule is to fix rather than to grow. Build the virtual machine, use it, and report what breaks on the GitHub issue tracker at github.com/maxpoww/Golem/issues, or write to indeepandes@gmail.com."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="compare.html">Compare</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">Questions</div>
+        <h1 class="rv in">Answered<br />without marketing.</h1>
+        <p class="lead rv in d1" style="margin-top:1.2rem">Everything below is what
+        we would tell you in person, including the parts that are not flattering.
+        Golem is pre-alpha and we would rather you know exactly what that means.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap prose">
+
+        <h2 class="rv">The basics</h2>
+
+        <h3 class="q rv">What is Golem?</h3>
+        <p class="rv">Golem is a Linux operating system built on NixOS, designed around a
+        single idea called <strong>OPTIONS</strong>: the system senses what you are
+        doing and offers exactly the tool that helps, then gets out of the way. It is
+        not a theme or a desktop environment layered on an existing distribution — the
+        shell, the context engine and the system layer are designed as one organism.
+        The current release line is Golem 26, codenamed “Uprise”.</p>
+
+        <h3 class="q rv">What is Golem based on?</h3>
+        <p class="rv">Golem is based on <strong>NixOS</strong>. It uses a customized
+        Hyprland compositor and its own shell called <code>waverunner</code>, driven by
+        a context engine called <code>options-engine</code>. NixOS is what makes Golem's
+        defining feature possible: the entire system is declared in configuration files,
+        updates are atomic, and every previous system state is kept as a generation you
+        can boot back into.</p>
+
+        <h3 class="q rv">Is Golem free?</h3>
+        <p class="rv">Yes. Golem is free of charge and its source code is public on
+        GitHub. There is no paid tier, no subscription, no advertisements inside the
+        operating system, and no upsells.</p>
+
+        <h3 class="q rv">Who makes Golem?</h3>
+        <p class="rv">Golem is created by <strong>Max Power</strong> and developed
+        entirely in public — the source code, the roadmap, the design documents and the
+        known bugs. It is an independent project with no company behind it. Contact:
+        <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>.</p>
+
+        <h3 class="q rv">Can I install Golem on my computer right now?</h3>
+        <p class="rv"><strong>Not yet.</strong> Golem is pre-alpha as of August 2026.
+        Today you can build and boot the complete Golem desktop as a virtual machine
+        using <a href="download.html">one Nix command</a>, which requires an existing
+        Linux system with Nix and flakes enabled. The installable ISO image that would
+        let you put Golem on a physical computer is the explicit goal of the current
+        development arc and has not been released. Golem is not yet suitable as a
+        daily-driver operating system for non-technical users.</p>
+
+        <h2 class="rv">The rollback question</h2>
+
+        <h3 class="q rv">What does it mean that Golem “cannot rot”?</h3>
+        <p class="rv">Because Golem is built on NixOS, every change to the system
+        produces a new <strong>generation</strong>, and every previous generation
+        remains bootable. Updates are <strong>atomic</strong> — they either complete
+        entirely or do not happen at all, so there is no half-updated state. If an
+        update or a configuration change causes a problem, you return to the previous
+        generation and the machine is exactly as it was.</p>
+        <p class="rv">An update cannot leave your computer broken, and the system does
+        not gradually accumulate damage over years of use the way conventionally
+        managed systems do. This is the single largest structural advantage Golem has
+        over Windows, macOS and traditional Linux distributions, and it is inherited
+        from NixOS rather than invented here.</p>
+
+        <h2 class="rv">Living with it</h2>
+
+        <h3 class="q rv">Do I need to use the terminal?</h3>
+        <p class="rv">That is the goal, and it is not fully true yet. Golem's stated
+        promise is that a terminal is <em>available but never required</em>. A terminal
+        emulator ships for people who want it. During the current pre-alpha phase some
+        system tasks still require one, and closing those gaps is what the roadmap is
+        for.</p>
+
+        <h3 class="q rv">Will Golem run on an older PC that Windows 11 will not support?</h3>
+        <p class="rv">That is one of Golem's intended audiences. Golem has no TPM 2.0
+        requirement, no Secure Boot requirement and no CPU allowlist, so it targets
+        machines that Windows 11 refuses to install on. Golem does require a GPU capable
+        of hardware-accelerated rendering, because its shell is GPU-rendered. Because
+        Golem is pre-alpha, broad hardware validation across varied machines has not
+        been completed.</p>
+
+        <h3 class="q rv">Can I run Windows applications on Golem?</h3>
+        <p class="rv">Golem is a Linux system, so Windows applications do not run
+        natively. The usual compatibility layers, Wine and Proton, are available through
+        Nix, but making them work smoothly is not something Golem has focused on yet.
+        For common productivity software, Golem's approach is a curated catalog of
+        <strong>web applications</strong> — Gmail, Google Docs, Office on the web,
+        Spotify, WhatsApp and similar — installed as first-class desktop applications,
+        plus native Linux software from the built-in software center.</p>
+
+        <h3 class="q rv">What about gaming?</h3>
+        <p class="rv">Steam and Proton install through Nix like any other software, so
+        gaming is possible in principle. It is not a focus of the project right now and
+        we have not tuned for it, so if gaming performance is your primary requirement,
+        a distribution that targets it directly will serve you better today.</p>
+
+        <h3 class="q rv">What applications come with Golem?</h3>
+        <p class="rv">Golem builds only what it considers part of its own soul and
+        curates the rest from existing open-source software.</p>
+        <ul>
+          <li class="rv"><b>Built by the project:</b> the shell, launcher and search, a
+          clipboard manager with history, notifications, an offline English and Spanish
+          dictionary, a software center, and the planned settings and rollback
+          interfaces.</li>
+          <li class="rv"><b>Curated from the GNOME family:</b> file manager, text editor,
+          calculator, calendar, clock, image viewer, document viewer and similar everyday
+          tools.</li>
+          <li class="rv"><b>Web applications:</b> a catalog covering mail, office suites
+          and messaging, installed as proper desktop apps.</li>
+        </ul>
+
+        <h3 class="q rv">Does Golem collect telemetry or personal data?</h3>
+        <p class="rv">No. Golem collects no telemetry, contains no advertising and
+        requires no online account to install or use. The context engine that powers
+        OPTIONS reads system state such as open windows, battery level and media
+        playback — all of that processing happens <strong>locally on the machine</strong>
+        and is never transmitted anywhere. This website also runs no analytics, trackers
+        or cookies.</p>
+
+        <h3 class="q rv">Is Golem available in languages other than English?</h3>
+        <p class="rv">Spanish is the first target language and the shell already ships an
+        offline Spanish dictionary alongside English. Full interface translation, along
+        with keyboard-only operation, screen reader support and other accessibility work,
+        is a dedicated cross-cutting section of the roadmap scheduled to close last,
+        before a general release.</p>
+
+        <h3 class="q rv">Does Golem work with my phone?</h3>
+        <p class="rv"><strong>Planned, not yet built.</strong> Golem for Android is a
+        companion application, based on the mature and open KDE Connect protocol,
+        intended to plug an Android phone into the same context engine that drives the
+        desktop: mirrored notifications, a shared clipboard, file and photo transfer,
+        using the phone as a webcam, and unlocking the PC when the phone is nearby.
+        Apple's iPhone is out of scope because the required interfaces are closed. The
+        pairing is deliberately <em>a Golem PC with any Android phone</em>.</p>
+
+        <h2 class="rv">Compared to other systems</h2>
+
+        <h3 class="q rv">How is Golem different from Ubuntu, Linux Mint, or Zorin OS?</h3>
+        <p class="rv">Those distributions assemble an existing desktop environment, such
+        as GNOME or Cinnamon, and configure and theme it well. Golem builds its own shell
+        and a context engine underneath it, so the desktop behaves as one designed system
+        rather than a set of well-chosen parts. The second difference is the foundation:
+        Ubuntu, Mint and Zorin use traditional package management, where an interrupted
+        or bad update can leave a system broken. Golem's NixOS base makes updates atomic
+        and fully reversible.</p>
+
+        <h3 class="q rv">How is Golem different from plain NixOS?</h3>
+        <p class="rv">NixOS provides the declarative, atomic, reproducible foundation but
+        leaves the desktop to the user, who is expected to assemble and configure it by
+        writing Nix. That work is precisely what makes NixOS difficult for non-technical
+        users. Golem supplies the missing half: a complete designed desktop, a context
+        engine, sensible defaults, and eventually a graphical installer and settings
+        interface that write declarative configuration on the user's behalf. The intent
+        is <strong>NixOS's power without requiring the user to learn Nix</strong>.</p>
+
+        <h3 class="q rv">How is Golem different from immutable distributions like Fedora Silverblue or Vanilla OS?</h3>
+        <p class="rv">Those systems are <em>image-based</em>: they ship a read-only base
+        image and you layer changes on top, and rollback means returning to a previous
+        image. Golem's NixOS base is <em>declarative</em> rather than image-based, which
+        means the entire system including installed software is described in
+        configuration and can be rebuilt identically on another machine. The other
+        difference is presentation: in those systems atomic updates are infrastructure
+        the user rarely sees, while in Golem the timeline of generations and a rollback
+        control are intended to be a visible, everyday feature.</p>
+        <p class="rv"><a href="compare.html">The full comparison →</a></p>
+
+        <h2 class="rv">The project</h2>
+
+        <h3 class="q rv">How can I help?</h3>
+        <p class="rv">The most valuable contribution right now is <strong>bug
+        reports</strong>, because the project's present rule is to fix rather than to
+        grow. Build the virtual machine, use it, and report what breaks on the
+        <a href="https://github.com/maxpoww/Golem/issues">GitHub issue tracker</a>, or
+        write to <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>.</p>
+
+        <h3 class="q rv">When will Golem be finished?</h3>
+        <p class="rv">We do not give dates, because a project developed in public with
+        honest status reporting should not invent them. What we publish instead is the
+        <a href="https://github.com/maxpoww/Golem/blob/main/roadmap.md">roadmap</a> with
+        its numbered sections and the specific bar each must clear. The next milestone is
+        an ISO that installs Golem on a stranger's computer with no terminal involved and
+        nobody from the project in the room.</p>
+
+        <hr />
+        <p class="close rv">If your question is not here, ask it:
+        <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
+          <a href="faq.html">FAQ</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>

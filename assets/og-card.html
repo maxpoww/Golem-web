@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Source for assets/og-image.png. Regenerate with:
+     chromium --headless --disable-gpu --window-size=1200,630 \
+       --screenshot=assets/og-image.png assets/og-card.html -->
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px; height: 630px; overflow: hidden; position: relative;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1000px 700px at 78% -8%, #16274a 0%, transparent 60%),
+                  radial-gradient(800px 600px at -6% 55%, #131f38 0%, transparent 55%),
+                  #070a12;
+      color: #e6ecf5;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 86px;
+    }
+    .glow {
+      position: absolute; border-radius: 50%; filter: blur(80px);
+    }
+    .g1 { width: 520px; height: 520px; right: -80px; top: -160px;
+          background: radial-gradient(circle, rgba(56,189,248,0.20), transparent 65%); }
+    .g2 { width: 420px; height: 420px; left: -120px; bottom: -140px;
+          background: radial-gradient(circle, rgba(167,139,250,0.16), transparent 65%); }
+    .brand { display: flex; align-items: center; gap: 18px; margin-bottom: 34px; }
+    .mark {
+      width: 52px; height: 52px; border-radius: 15px;
+      border: 3px solid #7dd3fc; position: relative;
+      box-shadow: 0 0 28px rgba(125,211,252,0.45), inset 0 0 16px rgba(125,211,252,0.18);
+    }
+    .mark::after {
+      content: ""; position: absolute; inset: 0; margin: auto;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #7dd3fc; box-shadow: 0 0 18px #7dd3fc;
+    }
+    .name { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; color: #f8fafc; }
+    h1 {
+      font-size: 82px; line-height: 1.02; letter-spacing: -0.038em;
+      font-weight: 800; color: #f8fafc; margin-bottom: 30px;
+    }
+    p { font-size: 29px; color: #aab6c8; line-height: 1.45; max-width: 900px; }
+    p b { color: #7dd3fc; font-weight: 600; }
+    .foot {
+      position: absolute; left: 86px; right: 86px; bottom: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 23px; color: #64748b;
+      border-top: 1px solid rgba(255,255,255,0.09); padding-top: 26px;
+    }
+    .foot .tag { color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="brand">
+    <div class="mark"></div>
+    <div class="name">Golem</div>
+  </div>
+
+  <h1>An operating system<br />with a soul.</h1>
+  <p>A Linux desktop that notices what you're doing, offers exactly what
+  helps, and gets out of the way. <b>The OS that cannot rot.</b></p>
+
+  <div class="foot">
+    <span class="tag">One surface. One Brain. Zero friction. For everyone.</span>
+    <span>golem-os.com</span>
+  </div>
+</body>
+</html>

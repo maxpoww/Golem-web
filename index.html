@@ -5,12 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Golem — an operating system with a soul</title>
   <meta name="description" content="Golem 26 “Uprise” — we build an operating system that notices what you're doing, offers exactly what helps, and gets out of the way. One surface. One Brain. Zero friction. For everyone." />
+  <link rel="canonical" href="https://golem-os.com/" />
   <meta property="og:title" content="Golem — an operating system with a soul" />
   <meta property="og:description" content="One surface. One Brain. Zero friction. For everyone. The OS that cannot rot." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://golem-os.com/" />
+  <meta property="og:image" content="https://golem-os.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Golem" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://golem-os.com/#org",
+        "name": "Golem",
+        "url": "https://golem-os.com/",
+        "logo": "https://golem-os.com/assets/og-image.png",
+        "email": "indeepandes@gmail.com",
+        "founder": { "@type": "Person", "name": "Max Power" },
+        "sameAs": [
+          "https://github.com/maxpoww/Golem",
+          "https://github.com/maxpoww/Golem-web"
+        ],
+        "description": "An independent project building Golem, a NixOS-based Linux operating system designed around a context engine called OPTIONS."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://golem-os.com/#website",
+        "url": "https://golem-os.com/",
+        "name": "Golem",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://golem-os.com/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://golem-os.com/#golem",
+        "name": "Golem",
+        "alternateName": ["Golem OS", "Golem 26 Uprise"],
+        "applicationCategory": "OperatingSystem",
+        "operatingSystem": "Linux",
+        "softwareVersion": "26",
+        "releaseNotes": "Golem 26, codenamed Uprise. Pre-alpha as of August 2026: a bootable virtual machine can be built from source, and an installable ISO has not yet been released.",
+        "url": "https://golem-os.com/",
+        "downloadUrl": "https://golem-os.com/download.html",
+        "installUrl": "https://golem-os.com/download.html",
+        "codeRepository": "https://github.com/maxpoww/Golem",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        },
+        "author": { "@type": "Person", "name": "Max Power" },
+        "publisher": { "@id": "https://golem-os.com/#org" },
+        "softwareRequirements": "A 64-bit PC with a GPU capable of hardware-accelerated rendering. No TPM 2.0, Secure Boot or CPU allowlist requirement. Building the virtual machine additionally requires an existing Linux system with Nix and flakes enabled.",
+        "description": "Golem is a NixOS-based Linux operating system built around OPTIONS, a context engine that senses what the user is doing and surfaces exactly the tool that helps, then removes it. Because it is built on NixOS, updates are atomic and every previous system state remains bootable, so an update cannot leave the machine broken.",
+        "featureList": [
+          "OPTIONS: a context engine that surfaces tools based on what the user is doing",
+          "Atomic updates with one-click rollback to any previous system generation",
+          "Declarative, reproducible system configuration inherited from NixOS",
+          "A purpose-built GPU-rendered shell: dock, launcher, notifications, clipboard history",
+          "An offline English and Spanish dictionary built into the shell",
+          "No telemetry, no advertising, and no online account requirement",
+          "Planned deep Android phone integration built on the KDE Connect protocol"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -24,6 +93,8 @@
     <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
     <div class="links">
       <a href="options.html">OPTIONS</a>
+      <a href="compare.html">Compare</a>
+      <a href="faq.html">FAQ</a>
       <a href="manifesto.html">Manifesto</a>
       <a href="https://github.com/maxpoww/Golem">GitHub</a>
       <a class="btn" href="download.html">Get Golem</a>
@@ -276,6 +347,7 @@
             required.</p>
           </div>
         </div>
+        <p style="margin-top:2rem" class="rv"><a href="compare.html">See Golem measured against Windows, macOS, Ubuntu, Silverblue and NixOS — including where we lose →</a></p>
       </div>
     </section>
 
@@ -322,6 +394,7 @@
             <div class="status-line"><span class="status-dot"></span>
               Status: pre-alpha · Arc 1 — “reach metal”</div>
             <p style="margin-top:1.4rem"><a class="btn ghost" href="https://github.com/maxpoww/Golem">Follow on GitHub</a></p>
+            <p style="margin-top:1.2rem"><a href="faq.html">Straight answers about hardware, apps, privacy and status →</a></p>
           </div>
           <div class="glass rv d1" style="padding:1.6rem">
             <h3 style="margin-bottom:0.4rem">The climb to the ISO</h3>
@@ -346,7 +419,8 @@
       <div class="foot-cols">
         <div class="col">
           <b>Golem</b>
-          <a href="options.html">OPTIONS</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
+          <a href="faq.html">FAQ</a> · <a href="manifesto.html">Manifesto</a> ·
           <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
         </div>
         <div class="col">
