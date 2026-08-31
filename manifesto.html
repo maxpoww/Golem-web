@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Golem manifesto</title>
+  <meta name="description" content="Golem 26 “Uprise” — the manifesto. A Linux distribution with a soul, built around one idea: OPTIONS." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="manifesto.html" class="active">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">The manifesto</div>
+        <h1 class="rv in">Golem</h1>
+        <p class="lead rv in d1" style="margin-top:0.8rem">Golem 26 — “Uprise”</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap prose">
+
+        <h2 class="rv">What Golem is</h2>
+        <p class="rv">A Linux distribution with a soul. Not a theme, not a desktop
+        environment, not a pile of apps — an operating system we build around one
+        idea: <strong>OPTIONS</strong>.</p>
+
+        <h2 class="rv">The idea</h2>
+        <p class="rv">All friction between a person and their intention is a design
+        failure. You should not operate a computer; you should <em>use</em> it.
+        Golem's job is to notice what you're doing, offer exactly what helps,
+        and get out of the way.</p>
+
+        <h2 class="rv">The philosophy</h2>
+        <p class="rv">Game designers solved the problem desktop designers never did:
+        teaching complete novices to master complex systems — no manual, no
+        training, no fear. They did it with dynamic, diegetic, context-aware
+        design that surfaces the right tool at the right moment and removes the
+        rest. <strong>OPTIONS is that philosophy applied to an OS.</strong>
+        Help scales to your skill: scaffolding for the novice, silence for the
+        expert, safety for both.</p>
+
+        <h2 class="rv">Who it's for</h2>
+        <p class="rv"><strong>Everyone.</strong> Not “anyone could” — <em>everyone can</em>.
+        Take a Golem PC, get things done. The shell meets each person where they
+        come from: the dock and topbar welcome the Mac user, the openbox
+        welcomes the Windows user, the substrate welcomes the Linux user — and
+        OPTIONS fills every gap between intention and action. Everyone includes
+        languages, includes accessibility, includes the person who has never
+        installed anything in their life.</p>
+
+        <h2 class="rv">How we build it</h2>
+        <ul>
+          <li class="rv"><b>The Brain</b> (<code>options-engine</code>) senses your context —
+          windows, media, git, phone, battery — and decides what is logical to offer.</li>
+          <li class="rv"><b>The Body</b> (<code>waverunner</code>) is the one living surface
+          you see: dock, openbox, the OPTIONS boxes. GPU-rendered, animated with
+          intent, idle at rest.</li>
+          <li class="rv"><b>The Ground</b> (NixOS) makes everything declarative and
+          reproducible: installs are intent written to a file; updates are atomic;
+          <em>any</em> change can be rolled back. The system cannot rot. No
+          mainstream OS can say that.</li>
+          <li class="rv"><b>The Reach</b> (Golem for Android) fuses your phone into the
+          same Brain — the open answer to the Mac+iPhone ecosystem, on the seat
+          Google and Apple left empty.</li>
+        </ul>
+
+        <h2 class="rv">What we refuse</h2>
+        <p class="rv">Configuration as a hobby. Terminals as a requirement. Ads,
+        telemetry, upsells inside the OS. Features that exist to be lists on a
+        website. Interruptions dressed as help. An update that can break your
+        machine.</p>
+
+        <h2 class="rv">Direction</h2>
+        <p class="rv">Two arcs. <strong>First, reach metal</strong>: perfect what exists and
+        put it on an ISO a stranger can install without us in the room.
+        <strong>Then, grow the soul</strong>: wire the Brain to the Body, build out
+        the OPTIONS modules, complete the everyday OS, reach the phone. OPTIONS is
+        a living layer — modules will keep changing, growing, multiplying; the ISO
+        doesn't wait for them.</p>
+        <p class="rv"><strong>Uprise</strong> is the first climb: from a daily-driven
+        prototype to an OS other people wake up to.</p>
+
+        <hr />
+        <p class="close rv">One surface. One Brain. Zero friction. For everyone.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>

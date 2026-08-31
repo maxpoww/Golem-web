@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Golem — download &amp; build</title>
+  <meta name="description" content="Golem 26 “Uprise” — pre-alpha. Build the Golem VM today with one command; the ISO for real hardware is the goal of Arc 1." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">Get Golem</div>
+        <h1 class="rv in">Try it today.<br />Install it soon.</h1>
+        <p class="lead rv in d1" style="margin-top:1.2rem">We tell you exactly where
+        we are: Golem is <strong>pre-alpha</strong>. Today you can build and boot the
+        complete Golem desktop as a virtual machine with one command. The ISO you
+        can put on a USB stick is what Arc&nbsp;1 of our roadmap exists to deliver.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap prose">
+
+        <div class="callout rv in d2"><b>Honesty first.</b> If you want a finished,
+        polished OS for your main machine <em>today</em>, we are not there yet — and
+        we won't pretend otherwise. If you want to watch an operating system grow
+        up in the open, welcome.</div>
+
+        <h2 class="rv">The VM — available now</h2>
+        <p class="rv">Every input of the Golem flake is pinned to GitHub: any machine with Nix
+        (flakes enabled) can build the exact same Golem PC we use ourselves. Two
+        commands, and you're inside the full stack — the waverunner dock and
+        launcher, the OPTIONS surfaces, notifications, the workspace overview:</p>
+
+        <pre class="code rv"><button class="copy-btn" type="button">copy</button><code><span class="c"># any Linux with Nix + flakes:</span>
+git clone https://github.com/maxpoww/Golem
+cd Golem
+nixos-rebuild build-vm --flake .#golem-vm
+./result/bin/run-Golem-vm</code></pre>
+
+        <p class="rv">The VM boots straight into the Golem session. It is the distribution's
+        proving ground — what works there is what the ISO will ship.</p>
+
+        <div class="callout blue rv"><b>No Nix?</b> Install it first from
+        <a href="https://nixos.org/download/">nixos.org/download</a> and enable
+        flakes. Yes, this step is exactly the kind of friction Golem exists to
+        eliminate — that is why the ISO is the whole point of Arc&nbsp;1.</div>
+
+        <h2 class="rv">The ISO — the Arc 1 exit</h2>
+        <p class="rv">Our bar for shipping it: <strong>a USB stick, another computer, a guided
+        install — no terminal, and none of us in the room.</strong> Disk, user,
+        wi-fi, done. Until an installation passes that test on hardware we don't
+        own, there is no download button here.</p>
+
+        <div class="arc rv" style="max-width:34rem">
+          <div class="arc-step"><span class="id done">S1 ✔</span><span class="what"><b>Land &amp; clean</b> — plan versioned, docs true.</span></div>
+          <div class="arc-step"><span class="id done">S2 ✔</span><span class="what"><b>The Spine</b> — the Brain streams into the living surface.</span></div>
+          <div class="arc-step"><span class="id doing">SH ●</span><span class="what"><b>Harden</b> — a week of daily use with zero surprises.</span></div>
+          <div class="arc-step"><span class="id">S7</span><span class="what"><b>The system flake</b> — one command, one complete Golem PC.</span></div>
+          <div class="arc-step"><span class="id">S9</span><span class="what"><b>Installer &amp; ISO</b> — the download button appears right here.</span></div>
+        </div>
+
+        <h2 class="rv">What you'll find, what you won't</h2>
+        <ul>
+          <li class="rv"><b>You'll find:</b> the living shell — dock, launcher/search,
+          clipboard with history, notifications, the offline EN/ES dictionary,
+          share cards, the battery ladder, the webapp catalog, atomic
+          NixOS ground with full rollback.</li>
+          <li class="rv"><b>You won't find (yet):</b> a graphical installer, a settings app,
+          wi-fi/bluetooth/audio as OPTIONS surfaces (curated stopgap tools cover
+          them), the Android companion, accessibility hardening. It's all on
+          <a href="https://github.com/maxpoww/Golem/blob/main/roadmap.md">the public roadmap</a>.</li>
+        </ul>
+
+        <h2 class="rv">Found a bug? Good.</h2>
+        <p class="rv">Arc 1's rule is <em>fix, don't grow</em> — bug reports are the most
+        valuable thing you can give us right now.
+        <a href="https://github.com/maxpoww/Golem/issues">Open an issue</a>, or write
+        to <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>.</p>
+
+        <hr />
+        <p class="close rv">Uprise is the first climb: from a daily-driven prototype
+        to an OS other people wake up to.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>
