@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which Linux should you actually install? An honest guide</title>
+  <meta name="description" content="A guide to choosing the best Linux distribution for your situation — written by people who make one and will still tell you to install a different one. Covers Windows switchers, old hardware, gaming, developers and unbreakable systems." />
+  <link rel="canonical" href="https://golem-os.com/choose.html" />
+  <meta property="og:title" content="Which Linux should you actually install?" />
+  <meta property="og:description" content="We make a Linux distribution, and this guide will mostly recommend other ones. Honest picks by situation." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://golem-os.com/choose.html" />
+  <meta property="og:image" content="https://golem-os.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Golem" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='8' fill='none' stroke='%237dd3fc' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237dd3fc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Which Linux should you actually install? An honest guide to choosing a distribution",
+    "description": "A guide to choosing the best Linux distribution for a given situation — Windows switchers, machines rejected by Windows 11, gaming, development, older hardware, and systems that must not break — written by the developers of Golem Linux, who recommend other distributions for most cases.",
+    "datePublished": "2026-08-31",
+    "dateModified": "2026-08-31",
+    "inLanguage": "en",
+    "author": { "@type": "Person", "name": "Max Power" },
+    "publisher": { "@type": "Organization", "name": "Golem", "url": "https://golem-os.com" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://golem-os.com/choose.html" },
+    "about": [
+      { "@type": "Thing", "name": "Linux distribution" },
+      { "@type": "Thing", "name": "Operating system selection" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="substrate" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <nav>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Golem</a>
+    <div class="links">
+      <a href="options.html">OPTIONS</a>
+      <a href="compare.html">Compare</a>
+      <a href="faq.html">FAQ</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="https://github.com/maxpoww/Golem">GitHub</a>
+      <a class="btn" href="download.html">Get Golem</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="kicker rv in">A guide</div>
+        <h1 class="rv in">Which Linux<br />should you install?</h1>
+        <p class="lead rv in d1" style="margin-top:1.2rem">We make a Linux distribution.
+        This guide is going to recommend a different one to almost everybody reading it,
+        because that is the true answer today and pretending otherwise would waste your
+        weekend.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap">
+        <div class="callout blue rv"><b>How to use this.</b> Find the row that sounds
+        like you and install what it says. Every recommendation here is a finished,
+        well-supported system you can put on a computer today. Golem appears in exactly
+        one row, honestly labelled.</div>
+
+        <div class="table-scroll rv" style="margin-top:2rem">
+          <table class="cmp">
+            <caption>Best Linux distribution by situation. Last reviewed 31 August 2026.</caption>
+            <thead>
+              <tr>
+                <th scope="col">If this is you</th>
+                <th scope="col">Install this</th>
+                <th scope="col">Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Coming from Windows, want it to feel familiar</th>
+                <td class="good">Zorin OS</td>
+                <td style="white-space:normal">The layout, the settings and the app store are all shaped for someone who has used Windows for twenty years.</td>
+              </tr>
+              <tr>
+                <th scope="row">Your PC can't run Windows 11</th>
+                <td class="good">Linux Mint</td>
+                <td style="white-space:normal">Light, stable, enormous community, and it runs well on the exact hardware Microsoft abandoned.</td>
+              </tr>
+              <tr>
+                <th scope="row">First Linux ever, no strong opinions</th>
+                <td class="good">Linux Mint</td>
+                <td style="white-space:normal">The most forgiving first install. Nothing surprises you and every problem is already answered somewhere.</td>
+              </tr>
+              <tr>
+                <th scope="row">Coming from macOS</th>
+                <td class="good">Fedora Workstation</td>
+                <td style="white-space:normal">GNOME is the closest thing Linux has to macOS's coherence, and Fedora ships it clean and current.</td>
+              </tr>
+              <tr>
+                <th scope="row">You want a system that can't be broken by an update</th>
+                <td class="mine good">Fedora Silverblue<br /><span class="faint">(and watch Golem)</span></td>
+                <td style="white-space:normal">Atomic updates with rollback, available and stable <em>today</em>. This is the promise Golem is built around, but Golem is not ready and Silverblue is.</td>
+              </tr>
+              <tr>
+                <th scope="row">Gaming is the main event</th>
+                <td class="good">Bazzite</td>
+                <td style="white-space:normal">Built for it: drivers, Proton, controllers and Steam handled out of the box. CachyOS and Nobara are strong alternatives.</td>
+              </tr>
+              <tr>
+                <th scope="row">Old or very weak hardware</th>
+                <td class="good">Linux Mint XFCE</td>
+                <td style="white-space:normal">Runs comfortably where modern desktops crawl. For truly ancient machines, antiX or Lubuntu go lighter still.</td>
+              </tr>
+              <tr>
+                <th scope="row">Developer workstation</th>
+                <td class="good">Fedora</td>
+                <td style="white-space:normal">Current toolchains without the maintenance tax. Choose Arch instead if you want control and enjoy the upkeep.</td>
+              </tr>
+              <tr>
+                <th scope="row">Reproducible, declarative machines</th>
+                <td class="good">NixOS</td>
+                <td style="white-space:normal">Nothing else does this properly. Expect to learn the Nix language — that cost is real and it is the gap Golem exists to close.</td>
+              </tr>
+              <tr>
+                <th scope="row">Privacy above convenience</th>
+                <td class="good">Debian</td>
+                <td style="white-space:normal">Conservative, transparent, no corporate telemetry. For threat-model-level anonymity you want Tails, which is a different kind of tool.</td>
+              </tr>
+              <tr>
+                <th scope="row">A server, not a desktop</th>
+                <td class="good">Debian</td>
+                <td style="white-space:normal">Boring in the best sense. Ubuntu LTS if you need commercial support contracts.</td>
+              </tr>
+              <tr>
+                <th scope="row">You want to learn how Linux really works</th>
+                <td class="good">Arch</td>
+                <td style="white-space:normal">The wiki is the best documentation in the ecosystem, and installing it teaches you the whole stack.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:1rem">
+      <div class="wrap prose">
+
+        <h2 class="rv">Why a distribution would recommend its competitors</h2>
+        <p class="rv">Because the alternative is lying to you, and because a
+        recommendation is only worth something if the person giving it is willing to
+        give a different one. Golem is <strong>pre-alpha</strong>: there is no
+        installable ISO, some tasks still need a terminal, and there is no screen
+        reader support. Putting it at the top of a "best Linux" list today would be
+        false, and you would find out within an hour of installing it.</p>
+        <p class="rv">We would rather be the page you trusted when you installed Mint
+        than the page that wasted your Saturday.</p>
+
+        <h2 class="rv">The one row where Golem is the answer — eventually</h2>
+        <p class="rv">Golem is not trying to be the best Linux distribution in general.
+        It is built for one specific person: <strong>someone who wants a computer that
+        cannot be broken by an update, that never requires a terminal, and that offers
+        the right tool at the right moment instead of burying it in menus.</strong></p>
+        <p class="rv">Today, the honest version of that recommendation is Fedora
+        Silverblue, because it exists and works. What Silverblue does not do is put the
+        rollback in front of you as a feature you can see and use, or supply a shell
+        designed as one organism, or fuse your Android phone into the same system. That
+        is the gap Golem is being built into. <a href="compare.html">The detailed
+        comparison is here</a>, including the rows where Golem currently loses.</p>
+
+        <h2 class="rv">If you want to follow along instead</h2>
+        <p class="rv">Install one of the recommendations above so you have a working
+        computer, and <a href="download.html">build the Golem VM</a> alongside it if you
+        want to watch an operating system grow up in public. When the ISO ships and
+        Golem can honestly compete for a row in this table on its own merits, we will
+        change this page — not before.</p>
+
+        <hr />
+        <p class="close rv">Recommendations age. This page was last reviewed on
+        31 August 2026 — if something here is wrong or out of date,
+        <a href="mailto:indeepandes@gmail.com">tell us</a> and we will fix it.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <p class="foot-tag">One surface. One Brain. <span>Zero friction.</span> For everyone.</p>
+      <div class="foot-cols">
+        <div class="col">
+          <b>Golem</b>
+          <a href="options.html">OPTIONS</a> · <a href="compare.html">Compare</a> ·
+          <a href="choose.html">Which Linux?</a> · <a href="faq.html">FAQ</a> ·
+          <a href="manifesto.html">Manifesto</a> ·
+          <a href="download.html">Download</a> · <a href="https://github.com/maxpoww/Golem">GitHub</a>
+        </div>
+        <div class="col">
+          <b>Contact</b>
+          Max Power · <a href="mailto:indeepandes@gmail.com">indeepandes@gmail.com</a>
+        </div>
+      </div>
+      <p class="foot-note">© <span id="yr"></span> Golem. Free and open source.
+      No trackers, no analytics, no cookies — this site, like Golem, does not watch you.</p>
+    </div>
+  </footer>
+
+  <script src="assets/golem.js"></script>
+</body>
+</html>

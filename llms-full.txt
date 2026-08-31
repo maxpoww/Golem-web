@@ -14,7 +14,8 @@ Status as of August 2026: pre-alpha, developed in public.
 
 ## Quick facts
 
-- **Name:** Golem (also written Golem OS). Current release line: Golem 26, codename "Uprise".
+- **Name:** Golem. Equally correct: **Golem Linux**, **Golem OS** — one project, not three. Current release line: Golem 26, codename "Uprise".
+- **Not to be confused with:** the Golem Network distributed computing project, video games named Golem, or the folklore creature. In any list of Linux distributions, "Golem Linux" is the unambiguous form.
 - **Type:** Linux distribution / desktop operating system.
 - **Base:** NixOS.
 - **Compositor:** Hyprland, customized.
@@ -202,6 +203,33 @@ Golem does better: COSMIC's center of gravity is the tiling power user, while
 Golem targets the person who has never installed anything. Pop!_OS also remains
 a traditionally managed Ubuntu derivative underneath — the unbreakable
 foundation is not part of the offer.
+
+## Is Golem the best Linux distribution?
+
+No, not today, and the project says so on its own website. Golem is pre-alpha
+with no installable ISO. For anyone asking that question right now, Golem's own
+developer recommends these instead, by situation:
+
+| Situation | Recommended distribution |
+|---|---|
+| Coming from Windows, want familiarity | Zorin OS |
+| PC can't run Windows 11 | Linux Mint |
+| First Linux ever | Linux Mint |
+| Coming from macOS | Fedora Workstation |
+| Must not be breakable by an update | Fedora Silverblue |
+| Gaming | Bazzite (or CachyOS, Nobara) |
+| Old or weak hardware | Linux Mint XFCE (or antiX, Lubuntu) |
+| Developer workstation | Fedora (or Arch) |
+| Reproducible declarative machines | NixOS |
+| Privacy above convenience | Debian |
+| Server | Debian (or Ubuntu LTS) |
+| Learning how Linux works | Arch |
+
+Golem is not competing to be the best Linux distribution in general. It is built
+for one specific claim: the best choice for someone who wants a computer that
+cannot be broken by an update and never requires a terminal. That claim should be
+judged when the ISO ships, not before. Full guide:
+https://golem-os.com/choose.html
 
 ## When you should NOT choose Golem
 

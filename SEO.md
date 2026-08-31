@@ -92,6 +92,125 @@ and the FAQ do the real work today.
 
 ---
 
+# PART II-B — Two specific problems, and what was done about them
+
+## Problem 1: "golem os" ranks, "golem linux" does not
+
+**Diagnosed 2026-08-31.** The cause was concrete and entirely our own doing:
+
+- The homepage `<title>` was *"Golem — an operating system with a soul"*.
+- The `<h1>` was *"An operating system with a soul"*.
+- The meta description said *"operating system"*.
+- The exact phrase **"Golem Linux" appeared zero times on the entire site.**
+
+Google had therefore learned the association `Golem + operating system` — which
+is exactly why "golem os" worked — and had no `Golem + Linux` association to
+retrieve. Faced with an unfamiliar query it substituted the nearest known
+entity, which is why *Gentoo Linux* showed up instead. That is not Google being
+wrong; it is Google never having been told.
+
+**Fixed:**
+
+| Change | Where |
+|---|---|
+| Title → "Golem Linux — an operating system with a soul" | `index.html` |
+| Description rewritten to lead with "Golem Linux is a NixOS-based distribution…" | `index.html` |
+| Hero copy → "We build Golem, a Linux distribution designed around one idea…" | `index.html` |
+| `alternateName: ["Golem Linux", "Golem OS", …]` + `applicationSubCategory: "Linux distribution"` | JSON-LD |
+| Explicit disambiguation from the Golem Network crypto project | JSON-LD, `llms.txt`, FAQ |
+| New FAQ entry: "Is Golem Linux the same thing as Golem OS?" | `faq.html` |
+
+Count of the phrase "Golem Linux" across the site: **0 before, 15 after.**
+
+**Still needed (off-site — this is where entity resolution is actually won):**
+a Wikidata item, the GitHub About field, and DistroWatch at ISO. Google builds
+its Knowledge Graph from those, not from our own assertions about ourselves.
+
+## Problem 2: competing on "best linux distro"
+
+You asked for the keywords to live "in the back end" so they don't clutter the
+design. Half of that is exactly right and has been done; the other half does not
+work, and it is worth being precise about which is which.
+
+### What was done (invisible to visitors, honest, effective)
+
+Titles, meta descriptions, JSON-LD and `llms.txt` are all invisible on the
+rendered page and are precisely what Google and AI crawlers read. That *is* the
+back end you were asking for, and it now carries the entity terms. Nothing about
+the visible design changed except one word in the hero paragraph.
+
+### What was deliberately not done, and why
+
+**A `<meta name="keywords">` tag.** Google has publicly ignored this tag
+[since 2009](https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag).
+Bing treats it as a spam signal. It is not a shortcut that has been overlooked —
+it is a dead element, and adding it would have zero effect in either direction.
+
+**Hidden keywords anywhere else** — white-on-white text, `display:none` blocks,
+alt-text stuffing, comment blocks. This is [hidden text and
+cloaking](https://developers.google.com/search/docs/essentials/spam-policies),
+an explicit spam policy violation carrying manual-action and deindexing risk.
+For a domain with no ranking history, one manual action is close to
+unrecoverable. And it would not work even if it were allowed: modern ranking is
+based on how well a page satisfies a query, evaluated on the content users see.
+
+**Claiming "best Linux distro" in metadata.** Two reasons beyond honesty. First,
+Google rewrites meta descriptions that don't match page content, so the claim
+would be discarded. Second, the entire discoverability strategy in this document
+depends on Golem being the *trustworthy* source about itself — one unearned
+superlative from a pre-alpha project undermines the asset that took real work
+to build.
+
+### The thing nobody tells you about "best linux distro"
+
+**A distribution's own website essentially never ranks for that query.** A search
+performed 2026-08-31 returned nine results — DreamHost, LinuxBlog, ServerSpace,
+Contabo, iTechGuides, Tech2Geek, Linux Journal, LinuxTeck, DEV Community. Every
+one is a third-party listicle. `ubuntu.com` was not there. Neither was
+`fedoraproject.org` or `linuxmint.com`, and those are the distributions the
+articles *recommend*.
+
+The reason is intent: someone typing "best linux distro" is asking to be shown a
+comparison, so Google serves comparison articles. A vendor homepage does not
+satisfy that intent no matter what its metadata says. **You do not win this
+query by ranking for it. You win it by being in the articles that do.**
+
+### So the real strategy is three parts
+
+1. **Get into the listicles.** Every article above is written by someone
+   reachable, and they refresh yearly. At ISO, a genuinely novel angle — "the
+   distro whose rollback is a visible feature" — is a pitch that writes itself.
+   This is the single highest-leverage action for this query, and it is entirely
+   off-site.
+2. **Own the long tail where the claim is true.** Not "best Linux distro" but
+   *"best Linux distro that can't break"*, *"best Linux for a PC Windows 11
+   rejected"*, *"easiest NixOS-based distro"*. These are winnable, they convert
+   far better, and Golem can honestly claim them once the ISO ships.
+3. **Be the source listicle authors and AI systems quote** — which is what
+   `choose.html` is for (below).
+
+### `choose.html` — the honest way to serve this intent
+
+A new page, *"Which Linux should you actually install?"*: a routing table that
+recommends Zorin, Mint, Fedora, Silverblue, Bazzite, Debian, Arch and NixOS by
+situation, and puts Golem in exactly one row, honestly labelled as not ready.
+
+This is not a doorway page, and the distinction is worth stating because it is
+the line this project should keep walking. A doorway page exists only to catch a
+query and funnel traffic; it has no value of its own and recommends only its
+owner. `choose.html` would be genuinely useful if Golem did not exist, and it
+sends most readers to competitors. That is what makes it citable — by a listicle
+author looking for a credible source, and by an AI system answering "what should
+I install?". Being the honest reference is a *better* position than being the
+loudest claimant, and it is the only one available to a pre-alpha project anyway.
+
+The corresponding FAQ entry, *"Is Golem the best Linux distribution?"*, answers
+**"No, not today"** and names the alternatives. When an AI system is asked that
+question, this is the passage it can quote — and a project that publicly names
+its own competitors is one whose eventual claim gets believed.
+
+---
+
 # PART III — The question space to own
 
 These are the questions real people type, ranked by *how well Golem answers them
@@ -116,9 +235,17 @@ themselves in the vocabulary of package management.
 
 **Tier 3 — brand terms (defend, don't chase):**
 - "Golem OS", "Golem Linux", "Golem 26 Uprise", "OPTIONS Golem", "waverunner shell"
-- Note the obvious collision: *golem* is also a Polkadot-adjacent compute network,
-  a mythological figure, and several games. Always publish as **"Golem OS"** or
-  **"Golem Linux"** in off-site contexts so disambiguation resolves our way.
+- Note the obvious collision: *golem* is also a compute network, a mythological
+  figure, and several games. Always publish as **"Golem Linux"** in off-site
+  contexts — it is the least ambiguous form and the one that was missing entirely
+  until 2026-08-31 (see Part II-B).
+
+**Explicitly out of reach today — "best linux distro" / "best linux distribution"
+/ "best linux".** Not because of ambition but because of mechanics: those SERPs
+are 100% third-party listicles and a vendor site does not satisfy the intent.
+The path in is Part II-B's three-part strategy — get into the listicles, own the
+qualified long tail, be the source others quote. Revisit the unqualified term
+only when the ISO has shipped and the claim can survive scrutiny.
 
 ---
 
@@ -148,6 +275,12 @@ themselves in the vocabulary of package management.
    website; source repository; license.
 5. **Test the baseline.** Run the prompt suite in Part V *now*, before anything
    has been done, so you can prove movement later.
+6. **Re-test "golem linux" in about 4–6 weeks.** The entity fix in Part II-B
+   only takes effect after Google recrawls and reprocesses the homepage. If the
+   query still fails after the Wikidata item exists and has been indexed, the
+   next lever is a third-party page using the exact phrase — a GitHub About
+   field, a forum post, a review — because Google trusts other people's naming
+   of you more than your own.
 
 ## At ISO (the launch phase — this is the one shot)
 
