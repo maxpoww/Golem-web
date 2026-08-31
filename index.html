@@ -22,13 +22,29 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": "https://golem-os.com/#max",
+        "name": "Max Power",
+        "email": "indeepandes@gmail.com",
+        "url": "https://golem-os.com/",
+        "sameAs": ["https://github.com/maxpoww"],
+        "jobTitle": "Creator and developer of Golem Linux",
+        "knowsAbout": [
+          "Linux distributions",
+          "NixOS",
+          "Operating system design",
+          "Wayland compositors",
+          "Human-computer interaction"
+        ]
+      },
+      {
         "@type": "Organization",
         "@id": "https://golem-os.com/#org",
         "name": "Golem",
         "url": "https://golem-os.com/",
         "logo": "https://golem-os.com/assets/og-image.png",
         "email": "indeepandes@gmail.com",
-        "founder": { "@type": "Person", "name": "Max Power" },
+        "founder": { "@id": "https://golem-os.com/#max" },
         "sameAs": [
           "https://github.com/maxpoww/Golem",
           "https://github.com/maxpoww/Golem-web"
@@ -65,7 +81,7 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/PreOrder"
         },
-        "author": { "@type": "Person", "name": "Max Power" },
+        "author": { "@id": "https://golem-os.com/#max" },
         "publisher": { "@id": "https://golem-os.com/#org" },
         "softwareRequirements": "A 64-bit PC with a GPU capable of hardware-accelerated rendering. No TPM 2.0, Secure Boot or CPU allowlist requirement. Building the virtual machine additionally requires an existing Linux system with Nix and flakes enabled.",
         "description": "Golem is a NixOS-based Linux operating system built around OPTIONS, a context engine that senses what the user is doing and surfaces exactly the tool that helps, then removes it. Because it is built on NixOS, updates are atomic and every previous system state remains bootable, so an update cannot leave the machine broken.",

@@ -34,7 +34,12 @@ no trackers: this site, like Golem, does not watch you.
 - `robots.txt` — deliberately welcomes every AI crawler, including CCBot.
 - `sitemap.xml` — all pages; referenced from robots.txt.
 - `llms.txt` / `llms-full.txt` — curated and full site content for LLMs.
-- JSON-LD structured data is inline in each page's `<head>`.
+- JSON-LD structured data is inline in each page's `<head>`. Four canonical
+  entities live on the homepage — `#max`, `#org`, `#website`, `#golem` — and
+  every other page references them by `@id` rather than redeclaring them.
+- `indexnow.sh` + the `baea06f8….txt` key file — push changed URLs to Bing,
+  Yandex, Seznam and Naver instantly. Run `./indexnow.sh` after a content
+  change; it refuses to submit until the domain resolves.
 
 ## Docs
 

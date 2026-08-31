@@ -89,6 +89,9 @@ Stated once, so it never gets rediscovered as a "growth idea":
 | Soft-404 prevention | `404.html` | GitHub Pages serves it automatically. Marked `noindex, follow` so link equity passes through but the page never ranks. |
 | Keyboard & contrast | `assets/styles.css` | Skip link, visible `:focus-visible` ring, and `--ink-faint` raised from #64748b (4.15:1 — failed WCAG AA) to #707f95 (4.87:1 — passes). Accessibility is a ranking input and a real usability fix. |
 | Off-site prep | `WIKIDATA.md` | Every property and value needed to create the Wikidata item, ready to paste. |
+| Author entity | all pages | One `Person` node with `@id` on the homepage, referenced by every other page, so Max Power resolves as one author rather than seven unlinked mentions. |
+| Instant indexing | `indexnow.sh` + key file | IndexNow push to Bing, Yandex, Seznam and Naver. Guarded so it refuses to submit before DNS resolves. |
+| Deployment | `DEPLOY.md` | Pages live on `main`/root; the Cloudflare DNS step and its two common failure modes documented. |
 
 **A caveat worth knowing:** `llms.txt` is a proposed convention, not a standard
 that any major provider has committed to honoring. It costs almost nothing to
@@ -324,6 +327,82 @@ only when the ISO has shipped and the claim can survive scrutiny.
 13. **Keep `llms-full.txt` and `compare.html` current.** These are the two files
     models will actually read. A comparison table that is a year stale produces
     a year-stale answer in every AI response.
+
+---
+
+# PART IV-B — Search engines beyond Google
+
+## Bing, DuckDuckGo and Yahoo are one lever, not three
+
+This is the single most useful fact in this section. **Bing's index powers
+DuckDuckGo, Yahoo, ChatGPT Search, Microsoft Copilot and Windows search.**
+DuckDuckGo supplements with its own crawler and sources like Wikipedia, and
+Yahoo layers its own homepage on top, but the underlying results come from Bing.
+
+There is no DuckDuckGo submission tool and no Yahoo submission tool, because
+there is nothing to submit to. **Verifying the site in [Bing Webmaster
+Tools](https://www.bing.com/webmasters) covers all of them at once** — and,
+critically for this project, it is also the index behind ChatGPT's web results.
+For a site chasing AI visibility, Bing is arguably a better use of an hour than
+Google Search Console.
+
+## The engines that actually have their own index
+
+Almost every other "search engine" is a front end on Google or Bing. The ones
+running independent crawls:
+
+| Engine | Worth doing? |
+|---|---|
+| **Google** | Yes — Search Console, submit the sitemap. |
+| **Bing** | Yes — covers Bing, DuckDuckGo, Yahoo, ChatGPT Search, Copilot. |
+| **Brave Search** | Independent index, privacy-focused audience that overlaps ours almost perfectly. No submission needed; it crawls. Just do not block `Bravebot`. |
+| **Yandex** | Own index. Matters if Russian-speaking users are a target; otherwise low priority. Accepts IndexNow. |
+| **Mojeek / Marginalia** | Tiny independent indexes, but Marginalia deliberately surfaces non-commercial, text-heavy, hand-built sites — which describes this one exactly. Nothing to submit; they crawl. |
+| **Baidu** | Skip. Meaningful presence requires an ICP licence and Chinese hosting. |
+
+**Do not** use "submit your site to 500 search engines" services. Those 500 are
+front ends on the two indexes above; the services are spam, and some leave
+footprints that look like link schemes.
+
+## IndexNow — set up 2026-08-31
+
+[IndexNow](https://www.indexnow.org) lets a site *push* changed URLs instead of
+waiting to be crawled. Supported by **Bing, Yandex, Seznam and Naver**; a single
+submission propagates to all participants. **Google does not participate** and
+has said it is evaluating the protocol, so Google still needs Search Console.
+
+Set up in this repo:
+
+- Key file: `baea06f8…8e4d.txt` at the site root (the filename is the key, and
+  the file contains the key — that is how IndexNow verifies ownership).
+- `indexnow.sh` submits every URL in `sitemap.xml`, or specific paths.
+
+```sh
+./indexnow.sh                        # everything in the sitemap
+./indexnow.sh /faq.html /index.html  # just these
+```
+
+The script refuses to submit until the key file is reachable at
+`golem-os.com`, so it is safe to run now — it will simply tell you DNS is not
+live yet. Run it after DNS lands, and after any significant content change.
+
+Cloudflare also offers a one-click IndexNow integration in its dashboard which
+submits automatically on cache purge. Since the site is already behind
+Cloudflare DNS, that is a reasonable alternative to the script — but do not
+enable both, or you will double-submit and risk rate limiting.
+
+## Submission checklist, in order
+
+Everything here is blocked on DNS resolving (see `DEPLOY.md`).
+
+1. **Bing Webmaster Tools** — verify, submit `sitemap.xml`. Highest value:
+   Bing + DuckDuckGo + Yahoo + ChatGPT Search + Copilot in one action. It can
+   import from Search Console if you do Google first.
+2. **Google Search Console** — verify, submit `sitemap.xml`, request indexing on
+   the homepage.
+3. **Run `./indexnow.sh`** — Bing, Yandex, Seznam, Naver, immediately.
+4. **Wikidata** — see [`WIKIDATA.md`](WIKIDATA.md). Not a search engine, but it
+   is what makes the entity resolve, and it feeds Google's Knowledge Graph.
 
 ---
 
